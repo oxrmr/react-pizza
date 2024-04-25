@@ -1,0 +1,61 @@
+@import './normalize';
+@import './font';
+@import './variables';
+@import './mixins/module';
+
+html {
+  padding: 20px 15px 60px;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  font-family: Nunito, sans-serif;
+  letter-spacing: 0.04em;
+  color: black;
+  background-color: var(--brite-gold);
+}
+
+.app {
+  padding: 0 var(--container-pd-sm) 64px;
+  background-color: var(--snow);
+  border-radius: 20px;
+  transition: background-color var(--duration) var(--type);
+
+  @include mq(tablet) {
+    padding: 0 var(--container-pd-md) 4rem;
+  }
+}
+
+.header {
+  margin-bottom: 24;
+  padding: 25px 0 20px;
+  border-bottom: 1px solid #f6f6f6;
+
+  @include mq(mobile-only) {
+    text-align: center;
+  }
+
+  @include mq(tablet) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    padding: 50px 0 40px;
+  }
+
+  &__logo {
+    @include mq(mobile-only) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__button {
+  }
+}

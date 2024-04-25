@@ -1,0 +1,16 @@
+.Categories {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 15px;
+  overflow: auto;
+}
+
+.btn {
+  font-weight: 700;
+  white-space: nowrap;
+
+  &.active {
+    background-color: #282828;
+    color: var(--snow);
+  }
+}

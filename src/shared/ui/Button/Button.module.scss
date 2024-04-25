@@ -1,0 +1,56 @@
+.Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100px;
+
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+}
+
+// Themes -------------------------------------------
+
+.lightButton {
+  color: var(--brave-orange);
+  background-color: var(--snow);
+
+  &:hover {
+    color: var(--snow);
+    background-color: var(--brave-orange);
+  }
+}
+
+.greyButton {
+  background-color: var(--doctor);
+
+  &:hover {
+    background-color: darken(#f9f9f9, 2%);
+  }
+
+  &:active {
+    background-color: darken(#f9f9f9, 5%);
+  }
+}
+
+// Options ----------------------------------
+
+.outlined {
+  border-color: var(--brave-orange);
+}
+
+// Sizes ---------------------------------------
+.smallButton {
+  padding: 10px 20px;
+}
+
+.mediumButton {
+  padding: 12px 25px;
+}
+
+.largeButton {
+  padding: 13px 30px;
+}

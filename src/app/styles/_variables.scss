@@ -1,0 +1,42 @@
+:root {
+  //------Fonts-----------------------------------
+  --ff: 'Nunito', sans-serif;
+
+  --fz-s: 14px;
+  --lh-s: 22px;
+
+  --fz-m: 16px;
+  --lh-m: 24px;
+
+  --fz-l: 24px;
+  --lh-l: 32px;
+
+  // ---------Colors-----------------------------------
+  --snow: #fff;
+  --brite-gold: #ffdf8c;
+  --bleached-silk: #f3f3f3;
+  --brave-orange: #fe5f1e;
+  --doctor: #f9f9f9;
+  --thamar-black: #181818;
+  --shoe-wax: #2c2c2c;
+  --wet-stone: rgba(0, 0, 0, 0.4);
+
+  //------Hover colors-----------------------------------
+  --retro-orange: #e5490b;
+
+  //-------Widget Sizes-----------------------------
+  --navbar-h: 50px;
+  --sidebar-w: 300px;
+  --sidebar-collapsed-w: 80px;
+
+  //-------Margins-Paddings-------------------------
+  --container-pd-sm: 15px;
+  --container-pd-md: 20px;
+
+  //------ Z-Indexes-----------------------------------
+  --modal-z-index: 10;
+
+  //-------Transitions-----------------------------------
+  --type: ease-in-out;
+  --duration: 0.15s;
+}

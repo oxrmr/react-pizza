@@ -1,0 +1,19 @@
+@mixin font($fz, $lh: normal, $fw: false, $ls: normal) {
+  font-size: $fz;
+
+  @if $lh==normal {
+    line-height: normal;
+  } @else {
+    line-height: $lh / $fz;
+  }
+
+  @if $ls==normal {
+    letter-spacing: normal;
+  } @else {
+    letter-spacing: #{$ls / $fz}em;
+  }
+
+  @if $fw {
+    font-weight: $fw;
+  }
+}

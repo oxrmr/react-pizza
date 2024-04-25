@@ -1,0 +1,44 @@
+@mixin mq($point) {
+  $tablet: 768px;
+  $laptop: 1024px;
+  $desktop: 1280px;
+
+  @if $point == mobile-only {
+    @media (max-width: ($tablet - 1px)) {
+      @content;
+    }
+    // //////////Tablet/////////////////////
+  } @else if $point == tablet {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  } @else if $point == tablet-only {
+    @media (min-width: $tablet) and (max-width: ($laptop - 1px)) {
+      @content;
+    }
+  } @else if $point == max-tablet {
+    @media (max-width: ($laptop - 1px)) {
+      @content;
+    }
+    // ///////////Laptop//////////////////////
+  } @else if $point == laptop {
+    @media (min-width: $laptop) {
+      @content;
+    }
+  } @else if $point == max-laptop {
+    @media (max-width: ($desktop - 1px)) {
+      @content;
+    }
+    // ////////////Desktop//////////////////////
+  } @else if $point == desktop {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+  // ///////////Tablet-Laptop ////////////////////
+  @else if $point == tablet-laptop {
+    @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+      @content;
+    }
+  }
+}

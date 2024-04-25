@@ -1,0 +1,44 @@
+.optionsList {
+  margin: 0 0 32px;
+
+  @include mq(desktop) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+  }
+}
+
+.optionsItemCategories {
+  @include mq(max-laptop) {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 870px) and (max-width: 1279px) {
+    justify-content: center;
+  }
+}
+
+.optionsItemSortBy {
+  @include mq(max-laptop) {
+    margin: 0 auto;
+  }
+}
+
+.pizzaSection {
+  .sectionTitle {
+    margin-bottom: 48px;
+    font-size: 32px;
+  }
+  .pizzaList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    place-items: center;
+    row-gap: 40px;
+
+    @include mq(tablet) {
+      gap: 60px 30px;
+      align-items: end;
+    }
+  }
+}
