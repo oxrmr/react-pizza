@@ -1,5 +1,5 @@
 import { CartPage } from 'pages/CartPage';
-import { HomePage, homePageLoader } from 'pages/HomePage';
+import { HomePage } from 'pages/HomePage';
 import type { RouteObject } from 'react-router-dom';
 
 export enum Route {
@@ -16,7 +16,6 @@ export const routesConfig: RouteObject[] = [
   {
     index: true,
     element: <HomePage />,
-    loader: homePageLoader,
   },
   {
     path: RoutePath.cart,

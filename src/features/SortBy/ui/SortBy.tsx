@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, type Dispatch, type SetStateAction } from 'react';
 
 import ArrowSVG from 'assets/svg/sort-arrow.svg?react';
 import cls from './SortBy.module.scss';
@@ -6,20 +6,26 @@ import { classNames } from 'shared/lib/classNames/classNames';
 
 export interface SortByProps {
   className?: string;
+  onClick: Dispatch<SetStateAction<string>>;
 }
 
-const SORT_OPTIONS = ['популярністю', 'ціною', 'алфавітом'];
+const SORT_OPTIONS = [
+  { title: 'популярністю', sort: 'rating' },
+  { title: 'ціною', sort: 'price' },
+  { title: 'алфавітом', sort: 'title' },
+];
 
 export const SortBy = (props: SortByProps) => {
-  const { className = '' } = props;
+  const { className = '', onClick } = props;
 
-  const [selectedSort, setSelectedSort] = useState(SORT_OPTIONS[0]);
   const [isVisible, setIsVisible] = useState(false);
+  const [sortTitle, setSortTitle] = useState(SORT_OPTIONS[0].title);
 
   const toggleIsVisible = () => setIsVisible((prev) => !prev);
 
-  const handleSelectSort = (e: React.MouseEvent) => {
-    setSelectedSort(e.currentTarget.textContent!);
+  const handleSort = (sort: string, title: string) => () => {
+    onClick(sort);
+    setSortTitle(title);
     setIsVisible(false);
   };
 
@@ -40,19 +46,19 @@ export const SortBy = (props: SortByProps) => {
           <h3>Сортувати за:</h3>
         </div>
         <div className={cls.selectedSortWrapper}>
-          <span className={cls.selectedSort}>{selectedSort}</span>
+          <span className={cls.selectedSort}>{sortTitle}</span>
         </div>
       </div>
-      <ul className={classNames(cls.list, { [cls.isVisible]: isVisible }, [])}>
-        {SORT_OPTIONS.map((option) => (
+      <ul className={classNames(cls.list, { [cls.isVisible]: isVisible })}>
+        {SORT_OPTIONS.map(({ title, sort }) => (
           <li
             className={classNames(cls.item, {
-              [cls.active]: option === selectedSort,
+              [cls.active]: title === sortTitle,
             })}
-            key={option}
-            onClick={handleSelectSort}
+            key={title}
+            onClick={handleSort(sort, title)}
           >
-            {option}
+            {title}
           </li>
         ))}
       </ul>

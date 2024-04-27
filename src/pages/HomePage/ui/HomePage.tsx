@@ -1,5 +1,4 @@
-import { FC } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { FC, useEffect, useState } from 'react';
 
 import { PizzaItem, type Pizza } from 'entities/PizzaItem/ui/PizzaItem';
 
@@ -10,9 +9,21 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Section } from 'shared/ui/Section';
 
 import cls from './HomePage.module.scss';
+import { PizzasService } from '../api/PizzasService';
 
 const HomePage: FC = () => {
-  const pizzasData = useLoaderData() as Pizza[];
+  const [pizzasData, setPizzasData] = useState<Pizza[]>();
+  const [categoryIdx, setCategoryIdx] = useState(0);
+  const [sortOption, setSortOption] = useState('');
+
+  useEffect(() => {
+    const fetchPizzas = async () => {
+      await PizzasService.fetchAll(categoryIdx, sortOption).then((data) =>
+        setPizzasData(data)
+      );
+    };
+    fetchPizzas();
+  }, [categoryIdx, sortOption]);
 
   return (
     <div
@@ -21,10 +32,17 @@ const HomePage: FC = () => {
     >
       <ul className={classNames(cls.optionsList, {}, [])}>
         <li>
-          <Categories className={cls.optionsItemCategories} />
+          <Categories
+            className={cls.optionsItemCategories}
+            onClick={setCategoryIdx}
+            categoryIdx={categoryIdx}
+          />
         </li>
         <li>
-          <SortBy className={cls.optionsItemSortBy} />
+          <SortBy
+            className={cls.optionsItemSortBy}
+            onClick={setSortOption}
+          />
         </li>
       </ul>
       <Section
@@ -33,12 +51,16 @@ const HomePage: FC = () => {
         titleClassName={cls.sectionTitle}
       >
         <ul className={cls.pizzaList}>
-          {pizzasData.map((pizza) => (
-            <PizzaItem
-              {...pizza}
-              key={pizza.id}
-            />
-          ))}
+          {pizzasData ? (
+            pizzasData.map((pizza) => (
+              <PizzaItem
+                {...pizza}
+                key={pizza.id}
+              />
+            ))
+          ) : (
+            <div></div>
+          )}
         </ul>
       </Section>
     </div>
@@ -46,11 +68,3 @@ const HomePage: FC = () => {
 };
 
 export default HomePage;
-
-// export const homePageLoader = async () => {
-//   const { data } = await axios.get<Pizza[]>(
-//     'https://648f0cf375a96b664444a0cb.mockapi.io/pizzas'
-//   );
-
-//   return data;
-// };

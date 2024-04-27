@@ -19,11 +19,12 @@ body {
 
   font-family: Nunito, sans-serif;
   letter-spacing: 0.04em;
-  color: black;
+  color: var(--thamar-black);
   background-color: var(--brite-gold);
 }
 
 .app {
+  min-height: 100vh;
   padding: 0 var(--container-pd-sm) 64px;
   background-color: var(--snow);
   border-radius: 20px;
