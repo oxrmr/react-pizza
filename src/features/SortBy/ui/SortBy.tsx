@@ -1,4 +1,10 @@
-import { useState, type Dispatch, type SetStateAction } from 'react';
+import {
+  useEffect,
+  useRef,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from 'react';
 
 import ArrowSVG from 'assets/svg/sort-arrow.svg?react';
 import cls from './SortBy.module.scss';
@@ -20,8 +26,11 @@ export const SortBy = (props: SortByProps) => {
 
   const [isVisible, setIsVisible] = useState(false);
   const [sortTitle, setSortTitle] = useState(SORT_OPTIONS[0].title);
+  const sortRef = useRef<HTMLDivElement>(null);
 
-  const toggleIsVisible = () => setIsVisible((prev) => !prev);
+  const toggleIsVisible = () => setIsVisible(!isVisible);
+
+  const stopPropagation = (e: MouseEvent) => e.stopPropagation();
 
   const handleSort = (sort: string, title: string) => () => {
     onClick(sort);
@@ -29,8 +38,23 @@ export const SortBy = (props: SortByProps) => {
     setIsVisible(false);
   };
 
+  useEffect(() => {
+    const handleBodyClick = (e: MouseEvent) => {
+      if (e.target !== e.currentTarget) {
+        setIsVisible(false);
+      }
+    };
+    document.body.addEventListener('click', handleBodyClick);
+
+    return () => document.body.removeEventListener('click', handleBodyClick);
+  }, []);
+
   return (
-    <div className={classNames(cls.SortBy, {}, [className])}>
+    <div
+      ref={sortRef}
+      className={classNames(cls.SortBy, {}, [className])}
+      onClick={stopPropagation}
+    >
       <div
         className={cls.titleWrapper}
         onClick={toggleIsVisible}
