@@ -1,14 +1,15 @@
 import {
   useEffect,
-  useRef,
   useState,
   type Dispatch,
   type SetStateAction,
+  type SyntheticEvent,
 } from 'react';
 
 import ArrowSVG from 'assets/svg/sort-arrow.svg?react';
 import cls from './SortBy.module.scss';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Button } from 'shared/ui/Button/Button';
 
 export interface SortByProps {
   className?: string;
@@ -26,11 +27,11 @@ export const SortBy = (props: SortByProps) => {
 
   const [isVisible, setIsVisible] = useState(false);
   const [sortTitle, setSortTitle] = useState(SORT_OPTIONS[0].title);
-  const sortRef = useRef<HTMLDivElement>(null);
 
-  const toggleIsVisible = () => setIsVisible(!isVisible);
-
-  const stopPropagation = (e: MouseEvent) => e.stopPropagation();
+  const toggleIsVisible = (e: SyntheticEvent) => {
+    e.stopPropagation();
+    setIsVisible(!isVisible);
+  };
 
   const handleSort = (sort: string, title: string) => () => {
     onClick(sort);
@@ -50,16 +51,12 @@ export const SortBy = (props: SortByProps) => {
   }, []);
 
   return (
-    <div
-      ref={sortRef}
-      className={classNames(cls.SortBy, {}, [className])}
-      onClick={stopPropagation}
-    >
-      <div
-        className={cls.titleWrapper}
+    <div className={classNames(cls.SortBy, {}, [className])}>
+      <Button
+        className={cls.sortButton}
         onClick={toggleIsVisible}
       >
-        <div className={cls.title}>
+        <span className={cls.titleWrapper}>
           <ArrowSVG
             className={classNames(
               cls.arrowIcon,
@@ -67,22 +64,26 @@ export const SortBy = (props: SortByProps) => {
               []
             )}
           />
-          <h3>Сортувати за:</h3>
-        </div>
-        <div className={cls.selectedSortWrapper}>
-          <span className={cls.selectedSort}>{sortTitle}</span>
-        </div>
-      </div>
-      <ul className={classNames(cls.list, { [cls.isVisible]: isVisible })}>
+          <span className={cls.sortByTitle}>Сортувати за:</span>
+        </span>
+        <span className={cls.selectedSort}>{sortTitle}</span>
+      </Button>
+      <ul
+        className={classNames(cls.optionsList, { [cls.isVisible]: isVisible })}
+      >
         {SORT_OPTIONS.map(({ title, sort }) => (
           <li
-            className={classNames(cls.item, {
-              [cls.active]: title === sortTitle,
-            })}
+            className={cls.optionsItem}
             key={title}
-            onClick={handleSort(sort, title)}
           >
-            {title}
+            <Button
+              className={classNames(cls.optionsButton, {
+                [cls.active]: title === sortTitle,
+              })}
+              onClick={handleSort(sort, title)}
+            >
+              {title}
+            </Button>
           </li>
         ))}
       </ul>

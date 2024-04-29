@@ -10,33 +10,27 @@ export interface Pizza {
   id: number;
   imageUrl: string;
   title: string;
-  types: number[];
+  types: string[];
   sizes: number[];
   price: number;
-  category: number;
-  rating: number;
 }
 
 export interface PizzaItemProps extends Pizza {
   className?: string;
 }
 
-const PIZZA_TYPE = ['тонке', 'традиційне'];
-
 export const PizzaItem = (props: PizzaItemProps) => {
   const { className = '', id, title, price, sizes, types } = props;
 
-  const [selectedType, setSelectedType] = useState(0);
+  const [selectedType, setSelectedType] = useState(types[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
 
-  const handleTypeClick = (e: React.MouseEvent) => {
-    const type = e.currentTarget.textContent;
-    if (type) setSelectedType(PIZZA_TYPE.indexOf(type));
+  const handleTypeClick = (type: string) => () => {
+    setSelectedType(type);
   };
 
-  const handleSizeClick = (e: React.MouseEvent) => {
-    const size = e.currentTarget.firstElementChild?.textContent;
-    if (size) setSelectedSize(Number(size));
+  const handleSizeClick = (size: number) => () => {
+    setSelectedSize(size);
   };
 
   return (
@@ -53,29 +47,31 @@ export const PizzaItem = (props: PizzaItemProps) => {
       <div className={cls.optionsWrapper}>
         {/* Pizza type list */}
         <ul className={classNames(cls.typesList, {}, [])}>
-          {types.map((typeIndex) => (
-            <li
-              className={classNames(cls.typesItem, {
-                [cls.active]: typeIndex === selectedType,
-              })}
-              key={typeIndex}
-              onClick={handleTypeClick}
-            >
-              {PIZZA_TYPE[typeIndex]}
+          {types.map((type) => (
+            <li key={type}>
+              <Button
+                className={classNames(cls.typesButton, {
+                  [cls.active]: type === selectedType,
+                })}
+                onClick={handleTypeClick(type)}
+              >
+                {type}
+              </Button>
             </li>
           ))}
         </ul>
         {/* Pizza size list */}
         <ul className={classNames(cls.sizesList, {}, [])}>
           {sizes.map((size) => (
-            <li
-              className={classNames(cls.sizesItem, {
-                [cls.active]: selectedSize === size,
-              })}
-              key={size}
-              onClick={handleSizeClick}
-            >
-              <span>{size}</span>cm
+            <li key={size}>
+              <Button
+                className={classNames(cls.sizesButton, {
+                  [cls.active]: selectedSize === size,
+                })}
+                onClick={handleSizeClick(size)}
+              >
+                {size}cm
+              </Button>
             </li>
           ))}
         </ul>

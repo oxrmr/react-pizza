@@ -10,6 +10,9 @@ import { Section } from 'shared/ui/Section';
 
 import cls from './HomePage.module.scss';
 import { PizzasService } from '../api/PizzasService';
+import { createSkeletons } from 'shared/ui/Skeleton/lib/createSkeletons';
+
+const ITEMS_PER_PAGE = 10;
 
 const HomePage: FC = () => {
   const [pizzasData, setPizzasData] = useState<Pizza[]>();
@@ -51,16 +54,14 @@ const HomePage: FC = () => {
         titleClassName={cls.sectionTitle}
       >
         <ul className={cls.pizzaList}>
-          {pizzasData ? (
-            pizzasData.map((pizza) => (
-              <PizzaItem
-                {...pizza}
-                key={pizza.id}
-              />
-            ))
-          ) : (
-            <div></div>
-          )}
+          {pizzasData
+            ? pizzasData.map((pizza) => (
+                <PizzaItem
+                  {...pizza}
+                  key={pizza.id}
+                />
+              ))
+            : createSkeletons(ITEMS_PER_PAGE)}
         </ul>
       </Section>
     </div>

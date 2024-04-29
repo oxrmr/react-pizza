@@ -1,19 +1,26 @@
 .SortBy {
   position: relative;
-  width: fit-content;
+  width: 250px;
 }
 
-.titleWrapper {
+.sortButton {
   display: flex;
   gap: 5px;
   margin-bottom: 0.5rem;
+  background-color: transparent;
+  border-color: transparent;
   cursor: pointer;
 }
 
-.title {
+.titleWrapper {
   position: relative;
   padding-left: 15px;
   font-size: 14px;
+}
+
+.sortByTitle {
+  font-size: 16px;
+  font-weight: 600;
 }
 
 .arrowIcon {
@@ -27,11 +34,6 @@
   }
 }
 
-.selectedSortWrapper {
-  min-width: 100px;
-  max-width: 120px;
-}
-
 .selectedSort {
   width: fit-content;
   margin-left: 5px;
@@ -41,7 +43,7 @@
   border-bottom: 1px dotted var(--brave-orange);
 }
 
-.list {
+.optionsList {
   position: absolute;
   right: 0;
   display: none;
@@ -67,8 +69,12 @@
   }
 }
 
-.item {
+.optionsButton {
+  width: 100%;
   padding: 12px;
+  border-color: transparent;
+  border-radius: 0;
+  background-color: transparent;
   transition: color var(--duration) var(--type),
     background-color var(--duration) var(--type);
   cursor: pointer;
