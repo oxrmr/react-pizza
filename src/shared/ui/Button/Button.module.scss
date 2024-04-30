@@ -17,21 +17,35 @@
   color: var(--brave-orange);
   background-color: var(--snow);
 
-  &:hover {
-    color: var(--snow);
-    background-color: var(--brave-orange);
+  @include mq(hover) {
+    &:hover,
+    &:focus {
+      color: var(--snow);
+      background-color: var(--brave-orange);
+    }
+  }
+
+  @include mq(hover-none) {
+    &:active {
+      background-color: #fe5f1e;
+    }
   }
 }
 
 .greyButton {
   background-color: var(--doctor);
 
-  &:hover {
-    background-color: darken(#f9f9f9, 2%);
+  @include mq(hover) {
+    &:hover,
+    &:focus {
+      background-color: darken(#f9f9f9, 2%);
+    }
   }
 
-  &:active {
-    background-color: darken(#f9f9f9, 5%);
+  @include mq(hover-none) {
+    &:active {
+      background-color: darken(#f9f9f9, 5%);
+    }
   }
 }
 
@@ -42,6 +56,7 @@
 }
 
 // Sizes ---------------------------------------
+
 .smallButton {
   padding: 10px 20px;
 }

@@ -39,11 +39,11 @@
   font-size: 14px;
   text-align: center;
   cursor: pointer;
+  border-radius: 5px;
 
   &.active {
     background: #ffffff;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
-    border-radius: 5px;
     cursor: auto;
   }
 }
@@ -75,10 +75,6 @@
     margin-right: 1px;
     fill: currentColor;
     transition: fill 0.4s ease-in-out;
-  }
-
-  &:active {
-    background-color: #fe5f1e;
   }
 }
 

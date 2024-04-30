@@ -40,5 +40,13 @@
     @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
       @content;
     }
+  } @else if $point == hover {
+    @media (hover: hover) {
+      @content;
+    }
+  } @else if $point == hover-none {
+    @media (hover: none) {
+      @content;
+    }
   }
 }
