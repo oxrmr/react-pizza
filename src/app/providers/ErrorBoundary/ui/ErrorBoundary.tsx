@@ -1,5 +1,5 @@
 import React, { type ErrorInfo, type ReactNode } from 'react';
-import { PageError } from 'widgets/PageError';
+import { PageError } from 'shared/ui/PageError';
 
 interface ErrorBoundaryState {
   hasError: boolean;

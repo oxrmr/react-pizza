@@ -85,10 +85,10 @@
   &.active {
     font-weight: bold;
     color: var(--brave-orange);
+    background: rgba(254, 95, 30, 0.05);
   }
 
   @include mq(hover) {
-    &.active,
     &:hover,
     &:focus {
       background: rgba(254, 95, 30, 0.05);

@@ -1,4 +1,4 @@
-.optionsList {
+.optionsSection {
   margin: 0 0 32px;
 
   @include mq(desktop) {
@@ -9,7 +9,7 @@
   }
 }
 
-.optionsItemCategories {
+.optionsCategories {
   @include mq(max-laptop) {
     margin-bottom: 20px;
   }
@@ -19,17 +19,19 @@
   }
 }
 
-.optionsItemSortBy {
+.optionsSortBy {
   @include mq(max-laptop) {
     margin: 0 auto;
   }
 }
 
-.pizzaSection {
+.pizzasSection {
+  margin-bottom: 20px;
   .sectionTitle {
     margin-bottom: 48px;
     font-size: 32px;
   }
+
   .pizzaList {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
