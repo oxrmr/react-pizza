@@ -25,10 +25,19 @@
   padding: 6px;
 }
 
-.typesList {
+.typesList,
+.sizesList {
   display: grid;
+  gap: 5px;
+}
+
+.typesList {
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 8px;
+}
+
+.sizesList {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .typesButton,
@@ -42,15 +51,23 @@
   border-radius: 5px;
 
   &.active {
-    background: #ffffff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: var(--snow);
+    box-shadow: 0px 2px 4px var(--wet-stone);
     cursor: auto;
   }
-}
 
-.sizesList {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  @include mq(hover) {
+    &:hover,
+    &:focus {
+      background-color: var(--snow);
+    }
+  }
+
+  @include mq(hover-none) {
+    &:active {
+      background-color: var(--snow);
+    }
+  }
 }
 
 .bottom {
