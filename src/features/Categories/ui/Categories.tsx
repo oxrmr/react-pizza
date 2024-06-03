@@ -1,29 +1,32 @@
-import { type Dispatch, type SetStateAction } from 'react';
+import { classNames } from "shared/lib/classNames/classNames";
+import { Button, ButtonSizes, ButtonThemes } from "shared/ui/Button/Button";
 
-import { Button, ButtonSizes, ButtonThemes } from 'shared/ui/Button/Button';
-import { classNames } from 'shared/lib/classNames/classNames';
-
-import cls from './Categories.module.scss';
+import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
+import { useSelector } from "react-redux";
+import { selectCategoryIndex } from "../model/selectors/selectCategoryFilterValut.ts/selectCategoryIndex";
+import { categoryActions } from "../model/slice/categorySlice";
+import cls from "./Categories.module.scss";
 
 export interface CategoriesProps {
   className?: string;
-  onClick: Dispatch<SetStateAction<number>>;
-  categoryIdx: number;
 }
 const CATEGORIES = [
-  'Всі',
+  "Всі",
   "М'ясні",
-  'Вегетарианські',
-  'На Грилі',
-  'Гострі',
-  'Закриті',
+  "Вегетарианські",
+  "На Грилі",
+  "Гострі",
+  "Закриті",
 ];
 
 export const Categories = (props: CategoriesProps) => {
-  const { className = '', onClick, categoryIdx } = props;
+  const { className = "" } = props;
+
+  const dispatch = useAppDispatch();
+  const categoryIdx = useSelector(selectCategoryIndex);
 
   const handleClick = (index: number) => () => {
-    onClick(index);
+    dispatch(categoryActions.setCategory(index));
   };
 
   return (
@@ -37,7 +40,7 @@ export const Categories = (props: CategoriesProps) => {
             theme={ButtonThemes.GREY}
             size={ButtonSizes.LG}
             onClick={handleClick(index)}
-            type='button'
+            type="button"
           >
             {category}
           </Button>

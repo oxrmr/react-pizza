@@ -1,20 +1,22 @@
 import { FC, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
-import { PizzaItem } from "entities/PizzaItem/ui/PizzaItem";
+import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
 
 import { Categories } from "features/Categories";
+import { selectCategoryIndex } from "features/Categories/model/selectors/selectCategoryFilterValut.ts/selectCategoryIndex";
 import { SortBy } from "features/SortBy";
 import { calcPageCount } from "shared/lib/calcPageCount/calcPageCount";
 import { Pagination } from "shared/ui/Pagination/Pagination";
 import { Section } from "shared/ui/Section";
 import { createSkeletons } from "shared/ui/Skeleton/lib/createSkeletons";
 
-import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
 import { selectAllItems } from "entities/PizzaItem/model/selectors/selectAllItems/selectAllItems";
 import { selectError } from "entities/PizzaItem/model/selectors/selectError/selectError";
 import { selectIsLoading } from "entities/PizzaItem/model/selectors/selectIsLoading/selectIsLoading";
 import { fetchPizzas } from "entities/PizzaItem/model/thunks/fetchPizzas";
-import { useSelector } from "react-redux";
+import { PizzaItem } from "entities/PizzaItem/ui/PizzaItem";
+import { selectSortOption } from "features/SortBy/model/selectors/selectSortOption/selectSortOption";
 import cls from "./HomePage.module.scss";
 
 const PIZZA_AMOUNT = 20;
@@ -22,12 +24,13 @@ const PER_PAGE = 8;
 
 const HomePage: FC = () => {
   const [page, setPage] = useState(1);
-  const [categoryIdx, setCategoryIdx] = useState(0);
-  const [sortOption, setSortOption] = useState("");
+
   const dispatch = useAppDispatch();
   const pizzaItems = useSelector(selectAllItems);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
+  const categoryIdx = useSelector(selectCategoryIndex);
+  const sortOption = useSelector(selectSortOption);
 
   const totalPages = calcPageCount(PIZZA_AMOUNT, PER_PAGE);
 
@@ -49,12 +52,8 @@ const HomePage: FC = () => {
   return (
     <div className={cls.HomePage} data-testid="homePage">
       <Section sectionClassName={cls.optionsSection}>
-        <Categories
-          className={cls.optionsCategories}
-          onClick={setCategoryIdx}
-          categoryIdx={categoryIdx}
-        />
-        <SortBy className={cls.optionsSortBy} onClick={setSortOption} />
+        <Categories className={cls.optionsCategories} />
+        <SortBy className={cls.optionsSortBy} />
       </Section>
       <Section
         title="Всі піцци"
