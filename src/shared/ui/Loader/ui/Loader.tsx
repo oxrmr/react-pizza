@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import type { FC } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Loader.module.scss";
@@ -21,9 +22,5 @@ interface LoaderProps {
 
 export const Loader: FC<LoaderProps> = (props) => {
   const { size, positioning } = props;
-  return (
-    <div
-      className={classNames(cls.Loader, {}, [cls[size], cls[positioning]])}
-    ></div>
-  );
+  return <div className={classNames(cls.Loader, {}, [cls[size], cls[positioning]])}></div>;
 };
