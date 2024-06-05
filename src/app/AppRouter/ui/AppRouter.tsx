@@ -1,9 +1,9 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import { routesConfig } from '../config/routesConfig';
+import { routesConfig } from "../config/routesConfig";
 
-import SharedLayout from 'app/SharedLayout/SharedLayout';
-import { PageError } from 'shared/ui/PageError';
+import { SharedLayout } from "app/SharedLayout/SharedLayout";
+import { PageError } from "shared/ui/PageError";
 
 const router = createBrowserRouter([
   {

@@ -1,7 +1,7 @@
-@import './normalize';
-@import './font';
-@import './variables';
-@import './mixins/module';
+@import "./normalize";
+@import "./font";
+@import "./variables";
+@import "./mixins/module";
 
 html {
   padding: 20px 15px 60px;
@@ -58,5 +58,29 @@ body {
   }
 
   &__button {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 25px;
+    color: #fff;
+    line-height: 23px;
+    text-decoration: none;
+    background-color: #fe5f1e;
+    border-radius: 30px;
+    transition: background-color ease 0.25s;
+
+    .price {
+      position: relative;
+      margin-right: 5px;
+      padding-right: 5px;
+      border-right: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .cartSvg {
+      margin-right: 5px;
+    }
+
+    &:hover {
+      background-color: darken($color: #fe5f1e, $amount: 10%);
+    }
   }
 }

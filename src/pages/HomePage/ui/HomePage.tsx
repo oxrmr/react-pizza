@@ -26,7 +26,7 @@ const HomePage: FC = () => {
   const [page, setPage] = useState(1);
 
   const dispatch = useAppDispatch();
-  const pizzaItems = useSelector(selectAllItems);
+  const pizzaData = useSelector(selectAllItems);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const categoryIdx = useSelector(selectCategoryIndex);
@@ -50,7 +50,10 @@ const HomePage: FC = () => {
   }, [categoryIdx, dispatch, page, sortOption]);
 
   return (
-    <div className={cls.HomePage} data-testid="homePage">
+    <div
+      className={cls.HomePage}
+      data-testid="homePage"
+    >
       <Section sectionClassName={cls.optionsSection}>
         <Categories className={cls.optionsCategories} />
         <SortBy className={cls.optionsSortBy} />
@@ -62,12 +65,17 @@ const HomePage: FC = () => {
       >
         <ul className={cls.pizzaList}>
           {!isLoading
-            ? pizzaItems.map((pizza) => <PizzaItem {...pizza} key={pizza.id} />)
+            ? pizzaData.map((pizza) => (
+                <PizzaItem
+                  {...pizza}
+                  key={pizza.id}
+                />
+              ))
             : createSkeletons(PER_PAGE)}
         </ul>
       </Section>
       {error && <div>{error}</div>}
-      {PER_PAGE < PIZZA_AMOUNT ? (
+      {PER_PAGE < PIZZA_AMOUNT && (
         <Section sectionClassName={cls.paginationSection}>
           <Pagination
             totalPages={totalPages}
@@ -75,7 +83,7 @@ const HomePage: FC = () => {
             changePage={handlePageClick}
           />
         </Section>
-      ) : null}
+      )}
     </div>
   );
 };

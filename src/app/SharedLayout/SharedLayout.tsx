@@ -1,22 +1,37 @@
-import { BugButton } from 'app/providers/ErrorBoundary';
-import { CartButton } from 'entities/CartButton';
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
-import Logo from 'shared/ui/Logo/ui/Logo';
+import { Outlet, useLocation } from "react-router-dom";
 
-const SharedLayout = () => {
+import { RoutePath } from "app/AppRouter/config/routesConfig";
+import CartSVG from "assets/svg/cart.svg?react";
+import { selectCartItemsAmount } from "entities/Cart/model/selectors/selectCartItemsAmount/selectCartItemsAmount";
+import { selectCartTotalPrice } from "entities/Cart/model/selectors/selectCartTotalPrice/selectCartTotalPrice";
+import { Suspense } from "react";
+import { useSelector } from "react-redux";
+import AppLink from "shared/ui/AppLink/AppLink";
+import Logo from "shared/ui/Logo/ui/Logo";
+
+export const SharedLayout = () => {
+  const location = useLocation();
+  const totalPrice = useSelector(selectCartItemsAmount);
+  const totalItems = useSelector(selectCartTotalPrice);
+
   return (
     <>
-      <header className='header'>
-        <Logo className='header__logo' />
-        <CartButton className='header__button' />
+      <header className="header">
+        <Logo className="header__logo" />
+        {location.pathname === RoutePath.home && (
+          <AppLink
+            to={RoutePath.cart}
+            className="header__button"
+          >
+            <span className="price">{totalPrice} ₴</span>
+            <CartSVG className="cartSvg" />
+            <span className="quantity">{totalItems}</span>
+          </AppLink>
+        )}
       </header>
-      <BugButton />
-      <Suspense fallback={<div>...loading</div>}>
+      <Suspense fallback={""}>
         <Outlet />
       </Suspense>
     </>
   );
 };
-
-export default SharedLayout;

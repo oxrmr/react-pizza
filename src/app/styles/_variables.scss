@@ -1,6 +1,6 @@
 :root {
   //------Fonts-----------------------------------
-  --ff: 'Nunito', sans-serif;
+  --ff: "Nunito", sans-serif;
 
   --fz-s: 14px;
   --lh-s: 22px;
@@ -34,7 +34,9 @@
   --container-pd-md: 20px;
 
   //------ Z-Indexes-----------------------------------
+  --overlay-z-index: 9;
   --modal-z-index: 10;
+  --loader-z-index: 11;
 
   //-------Transitions-----------------------------------
   --type: ease-in-out;

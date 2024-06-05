@@ -44,6 +44,7 @@
 .sizesButton {
   width: 100%;
   padding: 8px;
+
   font-weight: 600;
   font-size: 14px;
   text-align: center;
@@ -93,13 +94,24 @@
     fill: currentColor;
     transition: fill 0.4s ease-in-out;
   }
+
+  &:active {
+    transform: translateY(2px);
+  }
 }
 
-.amount {
-  width: 22px;
-  height: 22px;
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 23px;
+  height: 23px;
+  margin-left: 5px;
+
+  font-size: 13px;
   color: var(--snow);
   background-color: #eb5a1e;
   border-radius: 50%;
-  line-height: 1.2;
+  line-height: 1.5;
 }
