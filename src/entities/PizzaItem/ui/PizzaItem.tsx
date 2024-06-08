@@ -5,14 +5,14 @@ import { classNames } from "shared/lib/classNames/classNames";
 import { Button, ButtonSizes, ButtonThemes } from "shared/ui/Button/Button";
 
 import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
-import { selectCartItemQuantity } from "entities/Cart/model/selectors/selectCartItemQuantity/selectCartItemQuantity";
-import { cartActions } from "entities/Cart/model/slice/cartSlice";
+import { selectCartItemQuantity } from "entities/CartItem/model/selectors/selectCartItemQuantity/selectCartItemQuantity";
+import { cartActions } from "entities/CartItem/model/slice/cartSlice";
 import { useSelector } from "react-redux";
 import cls from "./PizzaItem.module.scss";
 
 export interface Pizza {
   id: number;
-  imageUrl: string;
+  imageURL: string;
   title: string;
   types: string[];
   sizes: number[];
@@ -24,13 +24,15 @@ export interface PizzaItemProps extends Pizza {
   className?: string;
 }
 
+const TEMP_IMG = "https://static.lieferando.de/images/restaurants/de/OR1NP7R1/products/veggie.png";
+
 export const PizzaItem = (props: PizzaItemProps) => {
-  const { className = "", id, title, price, sizes, types } = props;
+  const { className = "", id, title, types, sizes, price } = props;
   const [selectedType, setSelectedType] = useState(types[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
-
-  const orderId = id + "size" + selectedSize.toString() + selectedType.toString(); //Todo: write fn for ids
   const dispatch = useAppDispatch();
+
+  const orderId = id + "type" + selectedType + selectedSize;
   const quantity = useSelector(selectCartItemQuantity(orderId));
 
   const handleTypeClick = (type: string) => () => {
@@ -42,19 +44,9 @@ export const PizzaItem = (props: PizzaItemProps) => {
   };
 
   const handleAddButton = () => {
-    console.log(
-      "id",
-      id,
-      "selectedSize",
-      selectedSize,
-      "selectedType",
-      selectedType,
-      "order id",
-      orderId
-    );
-
     const newItem = {
       id: orderId,
+      imageURL: TEMP_IMG,
       title,
       price,
       size: selectedSize,
@@ -71,7 +63,7 @@ export const PizzaItem = (props: PizzaItemProps) => {
     >
       <img
         className={cls.img}
-        src="https://static.lieferando.de/images/restaurants/de/OR1NP7R1/products/veggie.png" //image should be webp format
+        src={TEMP_IMG} //Todo: find  in webp format
         alt={title}
         loading="lazy"
       />

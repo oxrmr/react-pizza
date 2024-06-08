@@ -1,18 +1,18 @@
-import type { FC } from 'react';
-import { Link } from 'react-router-dom';
+import type { FC } from "react";
+import { Link } from "react-router-dom";
 
-import LogoSVG from 'assets/svg/logo.svg?react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import LogoSVG from "assets/svg/logo.svg?react";
+import { classNames } from "shared/lib/classNames/classNames";
 
-import cls from './Logo.module.scss';
-import { RoutePath } from 'app/AppRouter/config/routesConfig';
+import cls from "./Logo.module.scss";
+import { RoutePath } from "app/AppRouter/config/routesConfig";
 
 export interface LogoProps {
   className?: string;
 }
 
 const Logo: FC<LogoProps> = (props) => {
-  const { className = '' } = props;
+  const { className = "" } = props;
 
   return (
     <Link

@@ -1,5 +1,5 @@
 :root {
-  //------Fonts-----------------------------------
+  //----------------------------------------Fonts
   --ff: "Nunito", sans-serif;
 
   --fz-s: 14px;
@@ -11,7 +11,7 @@
   --fz-l: 24px;
   --lh-l: 32px;
 
-  // ---------Colors-----------------------------------
+  //----------------------------------------Colors
   --snow: #fff;
   --brite-gold: #ffdf8c;
   --bleached-silk: #f3f3f3;
@@ -21,24 +21,30 @@
   --shoe-wax: #2c2c2c;
   --wet-stone: rgba(0, 0, 0, 0.04);
 
-  //------Hover colors-----------------------------------
+  //----------------------------------------Hover colors
   --retro-orange: #e5490b;
 
-  //-------Widget Sizes-----------------------------
+  //----------------------------------------Widget Sizes
   --navbar-h: 50px;
   --sidebar-w: 300px;
   --sidebar-collapsed-w: 80px;
 
-  //-------Margins-Paddings-------------------------
+  //----------------------------------------Margins-Paddings
   --container-pd-sm: 15px;
   --container-pd-md: 20px;
 
-  //------ Z-Indexes-----------------------------------
+  //----------------------------------------Z-Indexes
   --overlay-z-index: 9;
   --modal-z-index: 10;
   --loader-z-index: 11;
 
-  //-------Transitions-----------------------------------
+  //----------------------------------------Transitions
   --type: ease-in-out;
   --duration: 0.15s;
+
+  //----------------------------------------Borders
+  --lightgrey-border: 1px solid #f6f6f6;
+
+  //----------------------------------------Shadows
+  --shadow-4px-dark: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 }

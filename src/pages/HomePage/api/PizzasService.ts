@@ -7,25 +7,33 @@ export interface PizzasServiceArgs {
   page?: number;
   limit?: number;
 }
+const SERVER_URL = "http://localhost:3000/pizzas?";
 
-const axiosInstance = axios.create({
-  baseURL: "https://648f0cf375a96b664444a0cb.mockapi.io/",
-});
+const BASE_URL = "https://648f0cf375a96b664444a0cb.mockapi.io/pizzas";
 
 export class PizzasService {
   static async fetchAll({ category, sortBy, page, limit }: PizzasServiceArgs) {
-    const { data } = await axiosInstance.get<Pizza[]>(
-      `https://648f0cf375a96b664444a0cb.mockapi.io/pizzas`,
-      {
-        params: {
-          category: category || undefined,
-          sortBy: sortBy || "rating",
-          page: page ?? 1,
-          limit: limit || "",
-        },
-      }
-    );
+    const { data } = await axios.get<Pizza[]>(BASE_URL, {
+      params: {
+        category: category || undefined,
+        sortBy: sortBy || "rating",
+        page: page ?? 1,
+        limit: limit || "",
+      },
+    });
 
     return data;
+  }
+
+  static async fetchFromJSONServer({ category, sortBy, page, limit }: PizzasServiceArgs) {
+    const response = await fetch(
+      `${SERVER_URL}${category || undefined}&${sortBy || "rating"}${page ?? 1}${limit || ""}`
+    );
+
+    if (!response.ok) throw new Error(response.statusText);
+
+    const responseToJSON = await response.json();
+
+    return responseToJSON;
   }
 }

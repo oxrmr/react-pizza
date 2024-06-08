@@ -36,9 +36,9 @@ body {
 }
 
 .header {
-  margin-bottom: 24;
+  margin-bottom: 24px;
   padding: 25px 0 20px;
-  border-bottom: 1px solid #f6f6f6;
+  border-bottom: var(--lightgrey-border);
 
   @include mq(mobile-only) {
     text-align: center;
@@ -57,7 +57,7 @@ body {
     }
   }
 
-  &__button {
+  &__btn {
     display: inline-flex;
     align-items: center;
     padding: 12px 25px;
@@ -68,19 +68,24 @@ body {
     border-radius: 30px;
     transition: background-color ease 0.25s;
 
-    .price {
+    &:hover {
+      background-color: darken($color: #fe5f1e, $amount: 10%);
+    }
+  }
+
+  &-btn {
+    &__price {
       position: relative;
       margin-right: 5px;
       padding-right: 5px;
       border-right: 1px solid rgba(255, 255, 255, 0.25);
     }
 
-    .cartSvg {
+    &__cartSvg {
+      width: 16px;
+      height: 16px;
       margin-right: 5px;
-    }
-
-    &:hover {
-      background-color: darken($color: #fe5f1e, $amount: 10%);
+      stroke: currentColor;
     }
   }
 }

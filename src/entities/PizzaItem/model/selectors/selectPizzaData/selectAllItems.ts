@@ -1,3 +1,3 @@
 import type { StoreSchema } from "app/providers/StoreProvider/config/StoreSchema";
 
-export const selectError = (state: StoreSchema) => state.pizzas.error;
+export const selectPizzaData = (state: StoreSchema) => state.pizzas.items;

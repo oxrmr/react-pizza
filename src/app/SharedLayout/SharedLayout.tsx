@@ -1,9 +1,9 @@
 import { Outlet, useLocation } from "react-router-dom";
 
 import { RoutePath } from "app/AppRouter/config/routesConfig";
-import CartSVG from "assets/svg/cart.svg?react";
-import { selectCartItemsAmount } from "entities/Cart/model/selectors/selectCartItemsAmount/selectCartItemsAmount";
-import { selectCartTotalPrice } from "entities/Cart/model/selectors/selectCartTotalPrice/selectCartTotalPrice";
+import CartSVG from "assets/svg/cart-ic.svg?react";
+import { selectCartItemsAmount } from "entities/CartItem/model/selectors/selectCartItemsAmount/selectCartItemsAmount";
+import { selectCartTotalPrice } from "entities/CartItem/model/selectors/selectCartTotalPrice/selectCartTotalPrice";
 import { Suspense } from "react";
 import { useSelector } from "react-redux";
 import AppLink from "shared/ui/AppLink/AppLink";
@@ -21,11 +21,11 @@ export const SharedLayout = () => {
         {location.pathname === RoutePath.home && (
           <AppLink
             to={RoutePath.cart}
-            className="header__button"
+            className="header__btn header-btn"
           >
-            <span className="price">{totalPrice} ₴</span>
-            <CartSVG className="cartSvg" />
-            <span className="quantity">{totalItems}</span>
+            <span className="header-btn__price">{totalPrice} ₴</span>
+            <CartSVG className="header-btn__cartSvg" />
+            <span className="header-btn__ quantity">{totalItems}</span>
           </AppLink>
         )}
       </header>

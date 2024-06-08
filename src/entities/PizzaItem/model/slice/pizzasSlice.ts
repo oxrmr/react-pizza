@@ -26,8 +26,8 @@ const pizzasSlice = createSlice({
       )
       .addMatcher(
         (action) => action.type.endsWith("/rejected"),
-        (state) => {
-          state.error = "error";
+        (state, action) => {
+          state.error = JSON.stringify(action);
           state.isLoading = false;
         }
       );

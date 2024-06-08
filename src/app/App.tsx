@@ -1,12 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { AppRouter } from './AppRouter';
-import axios from 'axios';
+import { classNames } from "shared/lib/classNames/classNames";
+import { AppRouter } from "./AppRouter";
 
 const App = () => {
-  console.log(axios.defaults);
-  
   return (
-    <div className={classNames('app', {}, [])}>
+    <div className={classNames("app", {}, [])}>
       <AppRouter />
     </div>
   );

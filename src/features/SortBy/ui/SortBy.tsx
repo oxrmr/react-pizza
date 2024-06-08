@@ -1,7 +1,7 @@
 import { useEffect, useState, type SyntheticEvent } from "react";
 
 import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
-import ArrowSVG from "assets/svg/sort-arrow.svg?react";
+import ArrowSVG from "assets/svg/filled-arrow-up.svg?react";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button/Button";
 import { sortByAction } from "../model/slice/sortBySlice";
@@ -48,24 +48,22 @@ export const SortBy = (props: SortByProps) => {
 
   return (
     <div className={classNames(cls.SortBy, {}, [className])}>
-      <Button className={cls.sortButton} onClick={toggleIsVisible}>
+      <Button
+        className={cls.sortButton}
+        onClick={toggleIsVisible}
+      >
         <span className={cls.titleWrapper}>
-          <ArrowSVG
-            className={classNames(
-              cls.arrowIcon,
-              { [cls.rotate]: isVisible },
-              []
-            )}
-          />
+          <ArrowSVG className={classNames(cls.arrowIcon, { [cls.rotate]: isVisible }, [])} />
           <span className={cls.sortByTitle}>Сортувати за:</span>
         </span>
         <span className={cls.selectedSort}>{sortTitle}</span>
       </Button>
-      <ul
-        className={classNames(cls.optionsList, { [cls.isVisible]: isVisible })}
-      >
+      <ul className={classNames(cls.optionsList, { [cls.isVisible]: isVisible })}>
         {SORT_OPTIONS.map(({ title, sort }) => (
-          <li className={cls.optionsItem} key={title}>
+          <li
+            className={cls.optionsItem}
+            key={title}
+          >
             <Button
               className={classNames(cls.optionsButton, {
                 [cls.active]: title === sortTitle,

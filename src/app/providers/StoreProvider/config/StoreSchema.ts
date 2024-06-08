@@ -1,4 +1,4 @@
-import type { CartSchema } from "entities/Cart/model/slice/CartSchema";
+import type { CartSchema } from "entities/CartItem/model/slice/CartSchema";
 import type { PizzasSchema } from "entities/PizzaItem/model/slice/types";
 import type { CategorySchema } from "features/Categories/model/slice/types";
 import type { SortyBySchema } from "features/SortBy/model/slice/types";
