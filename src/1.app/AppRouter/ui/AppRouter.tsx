@@ -13,7 +13,7 @@ const router = createBrowserRouter(
       children: routesConfig,
     },
   ],
-  { basename: "react-pizza" }
+  { basename: "/" }
 );
 
 export const AppRouter = () => <RouterProvider router={router} />;
