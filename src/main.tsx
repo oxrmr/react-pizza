@@ -1,8 +1,8 @@
 import ReactDOM from "react-dom/client";
 
-import App from "app/App";
 import { ErrorBoundary } from "app/providers/ErrorBoundary";
 
+import App from "app/App";
 import StoreProvider from "app/providers/StoreProvider/ui/StoreProvider";
 import "app/styles/index.scss";
 
