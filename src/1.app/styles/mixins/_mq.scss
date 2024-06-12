@@ -4,7 +4,7 @@
   $desktop: 1280px;
 
   @if $point == mobile-only {
-    @media (max-width: ($tablet - 1px)) {
+    @media (max-width: ($tablet - 0.1)) {
       @content;
     }
     // //////////Tablet/////////////////////
@@ -13,7 +13,7 @@
       @content;
     }
   } @else if $point == tablet-only {
-    @media (min-width: $tablet) and (max-width: ($laptop - 1px)) {
+    @media (min-width: $tablet) and (max-width: ($laptop - 0.1)) {
       @content;
     }
   } @else if $point == max-tablet {
@@ -26,7 +26,7 @@
       @content;
     }
   } @else if $point == max-laptop {
-    @media (max-width: ($desktop - 1px)) {
+    @media (max-width: ($desktop - 0.1)) {
       @content;
     }
     // ////////////Desktop//////////////////////
@@ -37,7 +37,7 @@
   }
   // ///////////Tablet-Laptop ////////////////////
   @else if $point == tablet-laptop {
-    @media (min-width: $tablet) and (max-width: ($desktop - 1px)) {
+    @media (min-width: $tablet) and (max-width: ($desktop - 0.1)) {
       @content;
     }
   } @else if $point == hover {

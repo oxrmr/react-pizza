@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import PlusSVG from "shared/assets/svg/plus-ic.svg?react";
 
 import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
-import { selectCartItemQuantity } from "entities/CartItem/model/selectors/selectCartItemQuantity/selectCartItemQuantity";
-import { cartActions } from "entities/CartItem/model/slice/cartSlice";
+import { selectCartItemQuantity } from "entities/CartPizzaItem/model/selectors/selectCartItemQuantity/selectCartItemQuantity";
+import { cartActions } from "entities/CartPizzaItem/model/slice/cartSlice";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button, ButtonSizes, ButtonThemes } from "shared/ui/Button/Button";
 import cls from "./PizzaItem.module.scss";

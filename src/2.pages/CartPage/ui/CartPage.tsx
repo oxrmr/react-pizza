@@ -5,23 +5,25 @@ import CartSVG from "shared/assets/svg/cart-ic.svg?react";
 import TrashCanSVG from "shared/assets/svg/trash-ic.svg?react";
 
 import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
-import { CartItem } from "entities/CartItem";
-import { selectCartItems } from "entities/CartItem/model/selectors/selectCartItems/selectCartItems";
-import { cartActions } from "entities/CartItem/model/slice/cartSlice";
+import { CartPizzaItem } from "entities/CartPizzaItem";
+import { selectCartItems } from "entities/CartPizzaItem/model/selectors/selectCartItems/selectCartItems";
+import { selectCartItemsQuantity } from "entities/CartPizzaItem/model/selectors/selectCartItemsQuantity/selectCartItemsQuantity";
+import { cartActions } from "entities/CartPizzaItem/model/slice/cartSlice";
 import { Button } from "shared/ui/Button/Button";
 import { Section } from "shared/ui/Section";
 import cls from "./CartPage.module.scss";
 
 const CartPage: FC = () => {
   const dispatch = useAppDispatch();
+  const cartData = useSelector(selectCartItems);
+  const cartTotalItems = useSelector(selectCartItemsQuantity);
 
   const handleClearCart = () => {
     dispatch(cartActions.clearCart());
   };
 
-  const cartData = useSelector(selectCartItems);
   return (
-    <div>
+    <Section sectionClassName={cls.CartPage}>
       <header className={cls.header}>
         <div className={cls.titleWrapper}>
           <CartSVG className={cls.cartIcon} />
@@ -35,13 +37,13 @@ const CartPage: FC = () => {
           <span className={cls.clearCartLabel}>Очистити корзину</span>
         </Button>
       </header>
-      <main>
+      <main className={cls.main}>
         <Section>
           {/* Items section */}
           {cartData && (
-            <ul>
+            <ul className={cls.itemsList}>
               {cartData.map((item) => (
-                <CartItem
+                <CartPizzaItem
                   key={item.id}
                   {...item}
                 />
@@ -50,8 +52,14 @@ const CartPage: FC = () => {
           )}
         </Section>
       </main>
-      <footer></footer>
-    </div>
+      <footer>
+        {!!cartTotalItems && (
+          <p className={cls.priceLabel}>
+            Всього піц: <span className={cls.priceNumber}>{cartTotalItems}</span>
+          </p>
+        )}
+      </footer>
+    </Section>
   );
 };
 

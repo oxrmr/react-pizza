@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { CartItemProps } from "entities/CartItem/ui/CartItem";
-import type { CartSchema } from "./CartSchema";
+import type { CartItemProps } from "entities/CartPizzaItem/ui/CartPizzaItem";
+import type { CartSchema } from "../types";
 
 const initialState: CartSchema = { items: [], totalPrice: 0 };
 

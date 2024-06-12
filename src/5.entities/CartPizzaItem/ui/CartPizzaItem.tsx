@@ -1,4 +1,3 @@
-import type { PizzaItem } from "entities/PizzaItem/ui/PizzaItem";
 import type { FC } from "react";
 
 import MinusSVG from "shared/assets/svg/minus-ic.svg?react";
@@ -8,18 +7,13 @@ import RemoveSVG from "shared/assets/svg/remove-ic.svg?react";
 import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
 import { Button } from "shared/ui/Button/Button";
 import { cartActions } from "../model/slice/cartSlice";
-import cls from "./CartItem.module.scss";
+import type { CartItem } from "../model/types";
+import cls from "./CartPizzaItem.module.scss";
 // width and hight for images
 
-type CartItem = Omit<PizzaItem, "id" | "sizes" | "types">;
+export interface CartItemProps extends CartItem {}
 
-export interface CartItemProps extends CartItem {
-  id: string;
-  type: string;
-  size: number;
-}
-
-export const CartItem: FC<CartItemProps> = ({
+export const CartPizzaItem: FC<CartItemProps> = ({
   id,
   imageURL,
   title,
@@ -47,23 +41,25 @@ export const CartItem: FC<CartItemProps> = ({
   };
 
   return (
-    <li className={cls.CartItem}>
-      <img
-        className={cls.image}
-        src={imageURL}
-        alt="Pizza"
-        width="80"
-        height="80"
-        loading="lazy"
-      />
-      {/* Title and afterTitle */}
-      <div className={cls.textWrapper}>
-        <h3 className={cls.title}>{title}</h3>
-        <p className={cls.afterTitle}>
-          {type}, {size} см.
-        </p>
-      </div>
+    <li className={cls.CartPizzaItem}>
       <div className={cls.itemLeftWrapper}>
+        <img
+          className={cls.image}
+          src={imageURL}
+          alt="Pizza"
+          width="80"
+          height="80"
+          loading="lazy"
+        />
+        {/* Title and afterTitle */}
+        <div className={cls.textWrapper}>
+          <h3 className={cls.title}>{title}</h3>
+          <p className={cls.afterTitle}>
+            {type}, {size} см.
+          </p>
+        </div>
+      </div>
+      <div className={cls.itemRightWrapper}>
         {/* QuantityCounter */}
         <div className={cls.quantityCounter}>
           <Button
@@ -81,7 +77,6 @@ export const CartItem: FC<CartItemProps> = ({
           </Button>
         </div>
         {/* Price */}
-
         <span className={cls.price}>{price * quantity}₴</span>
         {/* RemoveBtn */}
         <Button

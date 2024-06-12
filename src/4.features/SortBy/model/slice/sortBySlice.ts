@@ -13,5 +13,5 @@ const sortBySlice = createSlice({
   },
 });
 
-export const { reducer: sortyByReducer } = sortBySlice;
+export const { reducer: sortByReducer } = sortBySlice;
 export const { actions: sortByAction } = sortBySlice;

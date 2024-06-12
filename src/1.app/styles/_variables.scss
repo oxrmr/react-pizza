@@ -1,3 +1,5 @@
+// TODO: add font for mobile in var
+// TODO: check all font sizes used
 :root {
   //----------------------------------------Fonts
   --ff: "Nunito", sans-serif;
@@ -11,6 +13,8 @@
   --fz-l: 24px;
   --lh-l: 32px;
 
+  --fz-xl: 32px;
+  --lh-l: 40px;
   //----------------------------------------Colors
   --snow: #fff;
   --brite-gold: #ffdf8c;
@@ -20,6 +24,7 @@
   --thamar-black: #181818;
   --shoe-wax: #2c2c2c;
   --wet-stone: rgba(0, 0, 0, 0.04);
+  --shadow-cl: rgba(0, 0, 0, 0.25);
 
   //----------------------------------------Hover colors
   --retro-orange: #e5490b;
@@ -43,8 +48,12 @@
   --duration: 0.15s;
 
   //----------------------------------------Borders
-  --lightgrey-border: 1px solid #f6f6f6;
+  --border-1px-lightgrey: 1px solid #f6f6f6;
 
   //----------------------------------------Shadows
-  --shadow-4px-dark: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  --shadow-4px: 4px;
+  --shadow-2px: 2px;
+
+  --shadow-4px-dark: 0 var(--shadow-4px) var(--shadow-4px) var(--shadow-cl);
+  --shadow-2px-dark: 0 var(--shadow-2px) var(--shadow-2px) var(--shadow-cl);
 }
