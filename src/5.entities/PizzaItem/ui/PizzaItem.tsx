@@ -63,9 +63,10 @@ export const PizzaItem = (props: PizzaItemProps) => {
     >
       <img
         className={cls.img}
-        src={TEMP_IMG} //Todo: find img in webp format
+        src={TEMP_IMG} //TODO: find img in webp format
         alt={title}
-        width="280"
+        width="260"
+        height="260"
         loading="lazy"
       />
       <h3 className={cls.title}>{title}</h3>

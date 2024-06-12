@@ -101,12 +101,8 @@
 .removeBtn {
   width: 30px;
   height: 30px;
-
-  border: 2px solid currentColor;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-  border-bottom-left-radius: 50%;
+  border-radius: 50%;
+  padding: 0;
 
   @include mq(hover) {
     &:hover,
@@ -123,11 +119,15 @@
 .decreaseBtn,
 .increaseBtn {
   color: var(--brave-orange);
+}
 
-  .plusIcon,
-  .minusIcon {
-    width: 10px;
-    height: 10px;
+.plusIcon,
+.minusIcon,
+.removeIcon {
+  fill: var(--snow);
+  stroke: currentColor;
+
+  path {
     fill: currentColor;
   }
 }
@@ -143,21 +143,7 @@
 }
 
 .removeBtn {
-  width: 30px;
-  height: 30px;
-
   color: #d7d7d7;
-  border: 2px solid currentColor;
-  border-top-left-radius: 50%;
-  border-top-right-radius: 50%;
-  border-bottom-right-radius: 50%;
-  border-bottom-left-radius: 50%;
-
-  .removeIcon {
-    width: 10px;
-    height: 10px;
-    fill: currentColor;
-  }
 
   @include mq(mobile-only) {
     position: absolute;
