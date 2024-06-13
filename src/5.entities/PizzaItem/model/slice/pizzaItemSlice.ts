@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchPizzas } from "../thunks/fetchPizzas";
-import type { PizzasSchema } from "./types";
+import type { PizzasSchema } from "../types";
 
 const initialState: PizzasSchema = {
   items: [],
@@ -8,7 +8,7 @@ const initialState: PizzasSchema = {
   error: "",
 };
 
-const pizzasSlice = createSlice({
+const pizzaItemSlice = createSlice({
   name: "pizzas",
   initialState,
   reducers: {},
@@ -34,4 +34,4 @@ const pizzasSlice = createSlice({
   },
 });
 
-export const { reducer: pizzasReducer } = pizzasSlice;
+export const { reducer: pizzaItemReducer } = pizzaItemSlice;

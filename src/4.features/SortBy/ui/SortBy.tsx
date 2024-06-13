@@ -1,7 +1,7 @@
 import { useEffect, useState, type SyntheticEvent } from "react";
 
 import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
-import ArrowSVG from "shared/assets/svg/filled-arrow-up-ic.svg?react";
+import { SortByArrowSVG } from "shared/assets";
 import { classNames } from "shared/lib/classNames/classNames";
 import { Button } from "shared/ui/Button/Button";
 import { sortByAction } from "../model/slice/sortBySlice";
@@ -53,7 +53,7 @@ export const SortBy = (props: SortByProps) => {
         onClick={toggleIsVisible}
       >
         <span className={cls.titleWrapper}>
-          <ArrowSVG className={classNames(cls.arrowIcon, { [cls.rotate]: isVisible }, [])} />
+          <SortByArrowSVG className={classNames(cls.arrowIcon, { [cls.rotate]: isVisible }, [])} />
           <span className={cls.sortByTitle}>Сортувати за:</span>
         </span>
         <span className={cls.selectedSort}>{sortTitle}</span>

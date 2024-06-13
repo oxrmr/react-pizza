@@ -1,8 +1,8 @@
-import { PizzasService, type PizzasServiceArgs } from "pages/HomePage/api/PizzasService";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import type { PizzaItem } from "entities/PizzaItem/ui/PizzaItem";
+import { PizzasService, type PizzasServiceArgs } from "pages/HomePage/api/PizzasService";
+import type { Pizza } from "../types";
 
-export const fetchPizzas = createAsyncThunk<PizzaItem[], PizzasServiceArgs>(
+export const fetchPizzas = createAsyncThunk<Pizza[], PizzasServiceArgs>(
   "pizzas/fetchPizzas",
   async ({ category, sortBy, limit, page }) => {
     return await PizzasService.fetchAll({

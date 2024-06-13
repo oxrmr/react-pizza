@@ -1,0 +1,31 @@
+.addButton {
+  min-width: 125px;
+  max-width: 155px;
+  color: var(--brave-orange);
+  font-weight: 500;
+
+  .plusIcon {
+    margin-right: 8px;
+  }
+
+  &:active {
+    translate: 0 (2px);
+  }
+}
+
+.quantity {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+
+  width: 23px;
+  height: 23px;
+  margin-left: 5px;
+
+  font-size: 13px;
+  color: var(--snow);
+  background-color: var(--brave-orange);
+  border-radius: 50%;
+  transition: color var(--type) var(--duration), background-color var(--type) var(--duration);
+}

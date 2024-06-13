@@ -5,9 +5,9 @@ import { selectCartItemsQuantity } from "entities/CartPizzaItem/model/selectors/
 import { selectCartTotalPrice } from "entities/CartPizzaItem/model/selectors/selectCartTotalPrice/selectCartTotalPrice";
 import { Suspense } from "react";
 import { useSelector } from "react-redux";
-import CartSVG from "shared/assets/svg/cart-ic.svg?react";
-import AppLink from "shared/ui/AppLink/AppLink";
-import Logo from "shared/ui/Logo/ui/Logo";
+import { CartSVG } from "shared/assets";
+import { Logo } from "shared/ui";
+import { AppLink } from "shared/ui/AppLink/AppLink";
 
 export const SharedLayout = () => {
   const location = useLocation();
@@ -21,14 +21,15 @@ export const SharedLayout = () => {
         {location.pathname === RoutePath.home && (
           <AppLink
             to={RoutePath.cart}
-            className="header__btn header-btn"
+            className="header__cart-link header-cart-link"
           >
-            <span className="header-btn__price">{totalPrice} ₴</span>
-            <CartSVG className="header-btn__cartSvg" />
-            <span className="header-btn__ quantity">{totalItems}</span>
+            <span className="header-cart-link__price">{totalPrice} ₴</span>
+            <CartSVG className="header-cart-link__cartSvg" />
+            <span className="header-cart-link__ quantity">{totalItems}</span>
           </AppLink>
         )}
       </header>
+
       <Suspense fallback={""}>
         <Outlet />
       </Suspense>

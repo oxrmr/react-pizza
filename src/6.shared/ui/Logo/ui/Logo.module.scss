@@ -4,7 +4,7 @@
   gap: 12px;
   text-decoration: none;
 
-  @include mq(mobile-only) {
+  @include mobileOnly {
     text-align: center;
     flex-direction: column;
   }
@@ -27,7 +27,7 @@
   text-align: center;
   color: #7b7b7b;
 
-  @include mq(mobile-only) {
+  @include mobileOnly {
     max-width: 240px;
   }
 }

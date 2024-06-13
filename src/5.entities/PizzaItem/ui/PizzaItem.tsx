@@ -1,39 +1,24 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState, type FC } from "react";
 
-import PlusSVG from "shared/assets/svg/plus-ic.svg?react";
-
-import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
-import { selectCartItemQuantity } from "entities/CartPizzaItem/model/selectors/selectCartItemQuantity/selectCartItemQuantity";
-import { cartActions } from "entities/CartPizzaItem/model/slice/cartSlice";
+import { AddToCart } from "features/Cart";
 import { classNames } from "shared/lib/classNames/classNames";
-import { Button, ButtonSizes, ButtonThemes } from "shared/ui/Button/Button";
+import { Button } from "shared/ui/Button/Button";
+import type { Pizza } from "../model/types";
 import cls from "./PizzaItem.module.scss";
 
-export interface PizzaItem {
-  id: number;
-  imageURL: string;
-  title: string;
-  types: string[];
-  sizes: number[];
-  price: number;
-  quantity: number;
-}
-
-export interface PizzaItemProps extends PizzaItem {
+export interface PizzaItemProps extends Pizza {
   className?: string;
 }
 
 const TEMP_IMG = "https://static.lieferando.de/images/restaurants/de/OR1NP7R1/products/veggie.png";
 
-export const PizzaItem = (props: PizzaItemProps) => {
+export const PizzaItem: FC<PizzaItemProps> = (props) => {
   const { className = "", id, title, types, sizes, price } = props;
   const [selectedType, setSelectedType] = useState(types[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
-  const dispatch = useAppDispatch();
 
+  // TODO:Refactor orderId
   const orderId = id + "type" + selectedType + selectedSize;
-  const quantity = useSelector(selectCartItemQuantity(orderId));
 
   const handleTypeClick = (type: string) => () => {
     setSelectedType(type);
@@ -43,17 +28,14 @@ export const PizzaItem = (props: PizzaItemProps) => {
     setSelectedSize(size);
   };
 
-  const handleAddButton = () => {
-    const newItem = {
-      id: orderId,
-      imageURL: TEMP_IMG,
-      title,
-      price,
-      size: selectedSize,
-      type: selectedType,
-      quantity: 1,
-    };
-    dispatch(cartActions.addItem(newItem));
+  const newItem = {
+    id: orderId,
+    imageURL: TEMP_IMG,
+    title,
+    price,
+    size: selectedSize,
+    type: selectedType,
+    quantity: 1,
   };
 
   return (
@@ -105,21 +87,12 @@ export const PizzaItem = (props: PizzaItemProps) => {
       <div className={cls.bottom}>
         <div className={cls.price}>
           <span>від</span>
-          <span>{price}</span>
-          <span>₴</span>
+          <span>{price} ₴</span>
         </div>
-        <Button
-          className={classNames(cls.addButton, {}, [])}
-          theme={ButtonThemes.LIGHT}
-          size={ButtonSizes.SM}
-          outlined
-          type="button"
-          onClick={handleAddButton}
-        >
-          <PlusSVG className={cls.plusIcon} />
-          <span>Додати</span>
-          {quantity && <span className={cls.quantity}>{quantity}</span>}
-        </Button>
+        <AddToCart
+          item={newItem}
+          orderId={orderId}
+        />
       </div>
     </li>
   );

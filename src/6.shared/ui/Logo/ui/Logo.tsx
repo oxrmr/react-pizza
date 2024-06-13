@@ -2,7 +2,7 @@ import type { FC } from "react";
 import { Link } from "react-router-dom";
 
 import { RoutePath } from "app/AppRouter/config/routesConfig";
-import LogoSVG from "shared/assets/svg/logo-ic.svg?react";
+import { LogoSVG } from "shared/assets";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Logo.module.scss";
 
@@ -10,7 +10,7 @@ export interface LogoProps {
   className?: string;
 }
 
-const Logo: FC<LogoProps> = (props) => {
+export const Logo: FC<LogoProps> = (props) => {
   const { className = "" } = props;
 
   return (
@@ -26,5 +26,3 @@ const Logo: FC<LogoProps> = (props) => {
     </Link>
   );
 };
-
-export default Logo;

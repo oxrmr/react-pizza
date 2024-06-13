@@ -30,7 +30,7 @@ body {
   border-radius: 20px;
   transition: background-color var(--duration) var(--type);
 
-  @include mq(tablet) {
+  @include tablet {
     padding: 0 var(--container-pd-md) 4rem;
   }
 }
@@ -40,11 +40,11 @@ body {
   padding: 25px 0 20px;
   border-bottom: var(--border-1px-lightgrey);
 
-  @include mq(mobile-only) {
+  @include mobileOnly {
     text-align: center;
   }
 
-  @include mq(tablet) {
+  @include tablet {
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
@@ -52,12 +52,12 @@ body {
   }
 
   &__logo {
-    @include mq(mobile-only) {
+    @include mobileOnly {
       margin-bottom: 32px;
     }
   }
 
-  &__btn {
+  &__cart-link {
     display: inline-flex;
     align-items: center;
     padding: 12px 25px;
@@ -66,7 +66,7 @@ body {
     text-decoration: none;
 
     color: var(--snow);
-    background-color: #fe5f1e;
+    background-color: var(--brave-orange);
     border-radius: 30px;
     transition: background-color ease 0.25s;
 
@@ -74,20 +74,35 @@ body {
       background-color: darken($color: #fe5f1e, $amount: 10%);
     }
   }
+}
 
-  &-btn {
-    &__price {
-      position: relative;
-      margin-right: 5px;
-      padding-right: 5px;
-      border-right: 1px solid rgba(255, 255, 255, 0.25);
-    }
+// TODO: add common styles for all links in its own file DRY
 
-    &__cartSvg {
-      width: 16px;
-      height: 16px;
-      margin-right: 5px;
-      stroke: currentColor;
-    }
+.header-cart-link {
+  &__price {
+    margin-right: 5px;
+    padding-right: 5px;
+    border-right: 1px solid rgba(255, 255, 255, 0.25);
   }
+
+  &__cartSvg {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+  }
+}
+
+// TODO: add title to buttons without label and .visually-hidden element
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

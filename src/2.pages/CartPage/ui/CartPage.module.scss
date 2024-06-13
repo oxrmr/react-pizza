@@ -17,7 +17,7 @@
   justify-content: center;
   gap: 10px;
 
-  @include mq(laptop) {
+  @include laptop {
     gap: 15px;
   }
 }
@@ -25,9 +25,8 @@
 .cartIcon {
   width: 22px;
   height: 22px;
-  stroke: currentColor;
 
-  @include mq(laptop) {
+  @include laptop {
     width: 30px;
     height: 30px;
   }
@@ -39,7 +38,7 @@
   letter-spacing: 0.01em;
   text-shadow: var(--shadow-4px-dark);
 
-  @include mq(laptop) {
+  @include laptop {
     font-size: var(--fz-xl);
   }
 }
@@ -47,40 +46,40 @@
 .clearCartButton {
   color: #b6b6b6;
 
-  @include mq(tablet) {
+  @include tablet {
     display: flex;
     align-items: center;
     gap: 8px;
   }
 
-  @include mq(hover) {
+  @include hover {
     &:hover,
     &:focus {
       color: darken($color: #b6b6b6, $amount: 10);
     }
   }
 
-  @include mq(hover-none) {
+  @include hoverNone {
     &:active {
       color: darken($color: #b6b6b6, $amount: 10);
     }
   }
 }
 
-.trashIcon {
-  stroke: currentColor;
-}
-
 .clearCartLabel {
   font-size: var(--fz-m);
 
-  @include mq(mobile-only) {
+  @include mobileOnly {
     display: none;
   }
 }
 
+.main {
+  margin-bottom: 40px;
+}
+
 .itemsList {
-  @include mq(mobile-only) {
+  @include mobileOnly {
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -88,11 +87,54 @@
   margin-bottom: 30px;
 }
 
-.priceLabel {
-  font-size: var(--fz-m);
-  margin-right: 5px;
+.orderTotalSection {
+  display: flex;
 }
 
-.priceNumber {
+.priceLabel,
+.totalPriceLabel {
+  display: flex;
+  gap: 5px;
+  font-size: var(--fz-m);
+}
+
+.priceNum,
+.totalPriceNum {
   font-weight: 700;
+}
+
+.totalPriceLabel {
+  margin-left: auto;
+}
+
+// Footer
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.goBackLink {
+  gap: 10px;
+}
+
+.goBackLink,
+.payLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #cacaca;
+  text-decoration: none;
+  border: 1px solid #d3d3d3;
+  border-radius: 30px;
+  min-width: 120px;
+  max-width: 180px;
+  width: 100%;
+  height: 50px;
+}
+
+.payLink {
+  color: var(--snow);
+  background-color: var(--brave-orange);
 }

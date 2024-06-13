@@ -1,8 +1,8 @@
-@mixin mq($point) {
-  $tablet: 768px;
-  $laptop: 1024px;
-  $desktop: 1280px;
+$tablet: 768px;
+$laptop: 1024px;
+$desktop: 1280px;
 
+@mixin mq($point) {
   @if $point == mobile-only {
     @media (max-width: ($tablet - 0.1)) {
       @content;
@@ -48,5 +48,59 @@
     @media (hover: none) {
       @content;
     }
+  }
+}
+
+@mixin hover {
+  @media (hover) {
+    @content;
+  }
+}
+
+@mixin hoverNone {
+  @media (hover: none) {
+    @content;
+  }
+}
+
+@mixin mobileOnly {
+  @media (max-width: ($tablet - 0.1)) {
+    @content;
+  }
+}
+
+@mixin tabletOnly {
+  @media (min-width: $tablet) and (max-width: ($laptop - 0.1)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin maxTablet {
+  @media (max-width: ($laptop - 0.1)) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: $laptop) {
+    @content;
+  }
+}
+
+@mixin maxLaptop {
+  @media (max-width: ($laptop - 0.1)) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
   }
 }

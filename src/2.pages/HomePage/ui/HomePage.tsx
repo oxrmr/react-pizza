@@ -45,7 +45,7 @@ const HomePage: FC = () => {
   }, [categoryIdx, dispatch, page, sortOption]);
 
   return (
-    <div className={cls.HomePage}>
+    <main className={cls.HomePage}>
       <Section sectionClassName={cls.optionsSection}>
         <Categories className={cls.optionsCategories} />
         <SortBy className={cls.optionsSortBy} />
@@ -75,7 +75,7 @@ const HomePage: FC = () => {
           changePage={handlePageClick}
         />
       )}
-    </div>
+    </main>
   );
 };
 

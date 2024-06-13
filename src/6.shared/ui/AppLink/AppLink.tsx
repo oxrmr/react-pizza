@@ -1,36 +1,22 @@
-import type { FC } from 'react';
-import { Link, type LinkProps } from 'react-router-dom';
-import cls from './AppLink.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
+import type { FC } from "react";
+import { Link, type LinkProps } from "react-router-dom";
 
-// eslint-disable-next-line react-refresh/only-export-components
-export enum AppLinkTheme {
-  MAIN = 'main',
-  ACCENT = 'accent',
-}
+import { classNames } from "shared/lib/classNames/classNames";
+import cls from "./AppLink.module.scss";
 
 export interface AppLinkProps extends LinkProps {
   className?: string;
-  theme?: AppLinkTheme;
 }
 
-const AppLink: FC<AppLinkProps> = (props) => {
-  const {
-    className = '',
-    to,
-    children,
-    theme = AppLinkTheme.MAIN,
-    ...restProps
-  } = props;
+export const AppLink: FC<AppLinkProps> = (props) => {
+  const { className = "", to, children, ...restProps } = props;
   return (
     <Link
       to={to}
-      className={classNames(cls.AppLink, {}, [className, cls[theme]])}
+      className={classNames(cls.AppLink, {}, [className])}
       {...restProps}
     >
       {children}
     </Link>
   );
 };
-
-export default AppLink;

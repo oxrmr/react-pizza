@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { PizzaItem } from "entities/PizzaItem/ui/PizzaItem";
+import type { Pizza } from "entities/PizzaItem/model/types";
 
 export interface PizzasServiceArgs {
   category: number;
@@ -13,7 +13,7 @@ const BASE_URL = "https://648f0cf375a96b664444a0cb.mockapi.io/pizzas";
 
 export class PizzasService {
   static async fetchAll({ category, sortBy, page, limit }: PizzasServiceArgs) {
-    const { data } = await axios.get<PizzaItem[]>(BASE_URL, {
+    const { data } = await axios.get<Pizza[]>(BASE_URL, {
       params: {
         category: category || undefined,
         sortBy: sortBy || "rating",

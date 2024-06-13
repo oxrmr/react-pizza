@@ -8,7 +8,12 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-* {
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
 }
 
 html {

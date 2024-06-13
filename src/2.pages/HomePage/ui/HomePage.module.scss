@@ -40,14 +40,14 @@
     gap: 40px 30px;
     align-items: end;
 
-    @include mq(tablet) {
+    @include tablet {
       gap: 60px 30px;
     }
   }
 }
 
 .pagination {
-  @include mq(mobile-only) {
+  @include mobileOnly {
     justify-content: center;
   }
 }

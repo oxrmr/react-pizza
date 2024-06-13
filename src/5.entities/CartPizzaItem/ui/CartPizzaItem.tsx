@@ -1,14 +1,7 @@
 import type { FC } from "react";
 
-import DecreaseSVG from "shared/assets/svg/decrease-ic.svg?react";
-import IncreaseSVG from "shared/assets/svg/increase-ic.svg?react";
-import CloseSVG from "shared/assets/svg/close-ic.svg?react";
-
-// import MinusSVG from "shared/assets/svg/minus-ic.svg?react";
-// import PlusSVG from "shared/assets/svg/plus-ic.svg?react";
-// import RemoveSVG from "shared/assets/svg/remove-ic.svg?react";
-
 import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
+import { MinusSVG, PlusSVG, RemoveSVG } from "shared/assets";
 import { Button } from "shared/ui/Button/Button";
 import { cartActions } from "../model/slice/cartSlice";
 import type { CartItem } from "../model/types";
@@ -69,14 +62,14 @@ export const CartPizzaItem: FC<CartItemProps> = ({
             className={cls.decreaseBtn}
             onClick={handleDecrementItem}
           >
-            <DecreaseSVG className={cls.minusIcon} />
+            <MinusSVG className={cls.minusIcon} />
           </Button>
           <p className={cls.quantity}>{quantity}</p>
           <Button
             className={cls.increaseBtn}
             onClick={handleIncrementItem}
           >
-            <IncreaseSVG className={cls.plusIcon} />
+            <PlusSVG className={cls.plusIcon} />
           </Button>
         </div>
         {/* Price */}
@@ -86,7 +79,7 @@ export const CartPizzaItem: FC<CartItemProps> = ({
           className={cls.removeBtn}
           onClick={handleRemove}
         >
-          <CloseSVG className={cls.removeIcon} />
+          <RemoveSVG className={cls.removeIcon} />
         </Button>
       </div>
     </li>
