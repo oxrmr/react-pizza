@@ -32,7 +32,7 @@ export const CartPizzaItem: FC<CartItemProps> = ({
     }
   };
 
-  const handleRemove = () => {
+  const handleRemoveItem = () => {
     dispatch(cartActions.removeItem(id));
   };
 
@@ -60,6 +60,7 @@ export const CartPizzaItem: FC<CartItemProps> = ({
         <div className={cls.quantityCounter}>
           <Button
             className={cls.decreaseBtn}
+            type="button"
             onClick={handleDecrementItem}
           >
             <MinusSVG className={cls.minusIcon} />
@@ -67,17 +68,18 @@ export const CartPizzaItem: FC<CartItemProps> = ({
           <p className={cls.quantity}>{quantity}</p>
           <Button
             className={cls.increaseBtn}
+            type="button"
             onClick={handleIncrementItem}
           >
             <PlusSVG className={cls.plusIcon} />
           </Button>
         </div>
-        {/* Price */}
         <span className={cls.price}>{price * quantity}₴</span>
         {/* RemoveBtn */}
         <Button
           className={cls.removeBtn}
-          onClick={handleRemove}
+          type="button"
+          onClick={handleRemoveItem}
         >
           <RemoveSVG className={cls.removeIcon} />
         </Button>

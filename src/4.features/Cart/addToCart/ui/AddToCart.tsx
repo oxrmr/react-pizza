@@ -28,11 +28,11 @@ export const AddToCart: FC<AddToCartProps> = (props) => {
   return (
     <Button
       className={classNames(cls.addButton, {}, [className])}
+      type="button"
       theme={ButtonThemes.LIGHT}
       size={ButtonSizes.SM}
-      outlined
-      type="button"
       onClick={handleAddToCart}
+      outlined
     >
       <PlusSVG className={cls.plusIcon} />
       <span>Додати</span>

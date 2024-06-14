@@ -30,10 +30,10 @@ export const Categories = (props: CategoriesProps) => {
             className={classNames(cls.btn, {
               [cls.active]: index === categoryIdx,
             })}
+            type="button"
             theme={ButtonThemes.GREY}
             size={ButtonSizes.LG}
             onClick={handleClick(index)}
-            type="button"
           >
             {category}
           </Button>

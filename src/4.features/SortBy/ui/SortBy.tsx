@@ -50,6 +50,7 @@ export const SortBy = (props: SortByProps) => {
     <div className={classNames(cls.SortBy, {}, [className])}>
       <Button
         className={cls.sortButton}
+        type="button"
         onClick={toggleIsVisible}
       >
         <span className={cls.titleWrapper}>
@@ -68,6 +69,7 @@ export const SortBy = (props: SortByProps) => {
               className={classNames(cls.optionsButton, {
                 [cls.active]: title === sortTitle,
               })}
+              type="button"
               onClick={handleSort(sort, title)}
             >
               {title}

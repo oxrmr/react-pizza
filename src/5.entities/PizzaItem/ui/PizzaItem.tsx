@@ -61,6 +61,7 @@ export const PizzaItem: FC<PizzaItemProps> = (props) => {
                 className={classNames(cls.typesButton, {
                   [cls.active]: type === selectedType,
                 })}
+                type="button"
                 onClick={handleTypeClick(type)}
               >
                 {type}
@@ -76,6 +77,7 @@ export const PizzaItem: FC<PizzaItemProps> = (props) => {
                 className={classNames(cls.sizesButton, {
                   [cls.active]: selectedSize === size,
                 })}
+                type="button"
                 onClick={handleSizeClick(size)}
               >
                 {size}cm

@@ -1,5 +1,7 @@
 // TODO: add font for mobile in var
 // TODO: check all font sizes used
+$thamarBlack: #181818;
+
 :root {
   //---------------------------------------- Fonts ----------------------------------------
 
@@ -22,7 +24,6 @@
   --bleached-silk: #f3f3f3;
   --brave-orange: #fe5f1e;
   --doctor: #f9f9f9;
-  --thamar-black: #181818;
   --shoe-wax: #2c2c2c;
   --wet-stone: rgba(0, 0, 0, 0.04);
   --shadow-cl: rgba(0, 0, 0, 0.25);
@@ -60,4 +61,6 @@
 
   --shadow-4px-dark: 0 var(--shadow-4px) var(--shadow-4px) var(--shadow-cl);
   --shadow-2px-dark: 0 var(--shadow-2px) var(--shadow-2px) var(--shadow-cl);
+
+  //---------------------------------------- Hover ----------------------------------------
 }

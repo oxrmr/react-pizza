@@ -8,7 +8,7 @@
 .btn {
   font-weight: 700;
   white-space: nowrap;
-  color: var(--thamar-black);
+  color: $thamarBlack;
 
   &.active {
     background-color: #282828;
