@@ -133,6 +133,8 @@
 .removeBtn {
   width: 30px;
   height: 30px;
+  // fix icon shift on IOS devices
+  padding: 0;
   color: #d7d7d7;
   background-color: var(--snow);
   border: 2px solid currentColor;
