@@ -11,7 +11,7 @@ export default defineConfig({
       scss: {
         // example : additionalData: `@import "./src/design/styles/variables";`
         // dont need include file extend .scss
-        additionalData: [`@import "./src/1.app/styles/globals";`],
+        additionalData: '@import "./src/1.app/styles/globals";',
       },
     },
   },

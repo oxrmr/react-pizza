@@ -3,6 +3,7 @@
   max-width: 155px;
   color: var(--brave-orange);
   font-weight: 500;
+  border-radius: var(--btn-radius);
 
   .plusIcon {
     margin-right: 8px;
@@ -27,5 +28,5 @@
   color: var(--snow);
   background-color: var(--brave-orange);
   border-radius: 50%;
-  transition: color var(--type) var(--duration), background-color var(--type) var(--duration);
+  transition: color var(--duration) var(--type), background-color var(--duration) var(--type);
 }

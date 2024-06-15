@@ -101,6 +101,7 @@
 .increaseBtn {
   width: 30px;
   height: 30px;
+  // Fix icon shift on IOS devices
   padding: 0;
   color: var(--brave-orange);
   border: 2px solid currentColor;
@@ -133,7 +134,7 @@
 .removeBtn {
   width: 30px;
   height: 30px;
-  // fix icon shift on IOS devices
+  // padding fix icon shift on IOS devices
   padding: 0;
   color: #d7d7d7;
   background-color: var(--snow);

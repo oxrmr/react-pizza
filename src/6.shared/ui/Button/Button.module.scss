@@ -3,12 +3,10 @@
   align-items: center;
   justify-content: center;
 
-  text-align: center;
   color: var(--thamar-black);
   background-color: transparent;
 
-  border-color: transparent;
-  border-radius: 30px;
+  border: 0;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
 }
@@ -19,36 +17,17 @@
   color: var(--brave-orange);
   background-color: var(--snow);
 
-  @include hover {
-    &:hover,
-    &:focus {
-      color: var(--snow);
-      background-color: var(--brave-orange);
-    }
-  }
-
-  @include hoverNone {
-    &:active {
-      color: var(--snow);
-      background-color: var(--brave-orange);
-    }
+  @include hoverFocus {
+    color: var(--snow);
+    background-color: var(--brave-orange);
   }
 }
 
 .greyButton {
   background-color: var(--doctor);
 
-  @include hover {
-    &:hover,
-    &:focus {
-      background-color: darken(#f9f9f9, 5%);
-    }
-  }
-
-  @include hoverNone {
-    &:active {
-      background-color: darken(#f9f9f9, 5%);
-    }
+  @include hoverFocus {
+    background-color: darken(#f9f9f9, 5%);
   }
 }
 

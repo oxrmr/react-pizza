@@ -1,0 +1,54 @@
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin hoverNone {
+  @media (hover: none) {
+    @content;
+  }
+}
+
+@mixin hoverNew {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+@mixin hoverNoneNew {
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
+
+@mixin focusVisible {
+  &:focus-visible {
+    @content;
+  }
+}
+
+@mixin supportsNotFocusVisible {
+  @supports not selector(:focus-visible) {
+    @content;
+  }
+}
+
+@mixin hoverFocus {
+  @include hoverNew {
+    @content;
+  }
+  @include hoverNoneNew {
+    @content;
+  }
+  @include focusVisible {
+    @content;
+  }
+  @include supportsNotFocusVisible {
+    @content;
+  }
+}

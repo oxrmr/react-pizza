@@ -8,7 +8,8 @@ import { selectCartItems } from "entities/CartPizzaItem/model/selectors/selectCa
 import { selectCartItemsQuantity } from "entities/CartPizzaItem/model/selectors/selectCartItemsQuantity/selectCartItemsQuantity";
 import { selectCartTotalPrice } from "entities/CartPizzaItem/model/selectors/selectCartTotalPrice/selectCartTotalPrice";
 import { cartActions } from "entities/CartPizzaItem/model/slice/cartSlice";
-import { ArrowLeftSVG, CartSVG, TrashCanSVG } from "shared/assets";
+import { ArrowLeftSVG, CartSVG, PersonWithCartSVG, TrashCanSVG } from "shared/assets";
+import { classNames } from "shared/lib/classNames/classNames";
 import { AppLink } from "shared/ui/AppLink/AppLink";
 import { Button } from "shared/ui/Button/Button";
 import { Section } from "shared/ui/Section";
@@ -23,64 +24,82 @@ const CartPage: FC = () => {
   const handleClearCart = () => {
     dispatch(cartActions.clearCart());
   };
-
+  // TODO:remove unnecessary divs
   return (
-    <main className={cls.CartPage}>
-      <header className={cls.header}>
-        <div className={cls.titleWrapper}>
-          <CartSVG className={cls.cartIcon} />
-          <span className={cls.title}>Корзина</span>
+    <div className={cls.CartPage}>
+      {!cartTotalItems ? (
+        <div className={cls.emptyCart}>
+          <h3 className={cls.emptyCartTitle}>Корзина порожня 😕</h3>
+          <p className={cls.emptyCartAfterTitle}>
+            Найімовірніше, ви не замовляли ще піцу.<span className={cls.breakLine}></span> Щоб
+            замовити піцу, перейдіть на головну сторінку.
+          </p>
+          <PersonWithCartSVG className={classNames(cls.emptyCartImg, {}, [" emptyPC"])} />
+          <AppLink
+            className={cls.emptyCartBackToMainLink}
+            to={RoutePath.home}
+          >
+            <ArrowLeftSVG /> На головну
+          </AppLink>
         </div>
-        <Button
-          className={cls.clearCartButton}
-          onClick={handleClearCart}
-        >
-          <TrashCanSVG className={cls.trashIcon} />
-          <span className={cls.clearCartLabel}>Очистити корзину</span>
-        </Button>
-      </header>
-      <main className={cls.main}>
-        <Section>
-          {/* Items section */}
-          {cartData && (
-            <ul className={cls.itemsList}>
-              {cartData.map((item) => (
-                <CartPizzaItem
-                  key={item.id}
-                  {...item}
-                />
-              ))}
-            </ul>
-          )}
-        </Section>
-        {/* Order total section */}
-        {!!cartTotalItems && (
-          <Section sectionClassName={cls.orderTotalSection}>
-            <p className={cls.priceLabel}>
-              Кількість: <span className={cls.priceNum}>{cartTotalItems}</span>
-            </p>
-            <p className={cls.totalPriceLabel}>
-              Сума: <span className={cls.totalPriceNum}>{cartTotalPrice} ₴</span>
-            </p>
-          </Section>
-        )}
-      </main>
-      <footer className={cls.footer}>
-        <AppLink
-          className={cls.goBackLink}
-          to={RoutePath.home}
-        >
-          <ArrowLeftSVG /> Назад
-        </AppLink>
-        {/* TODO: change to link when payment service connected  */}
-        <AppLink
-          className={cls.payLink}
-          to="#"
-        >
-          Сплатити
-        </AppLink>
-      </footer>
-    </main>
+      ) : (
+        <>
+          <div className={cls.header}>
+            <div className={cls.titleWrapper}>
+              <CartSVG className={cls.cartIcon} />
+              <span className={cls.title}>Корзина</span>
+            </div>
+            <Button
+              className={cls.clearCartButton}
+              onClick={handleClearCart}
+            >
+              <TrashCanSVG className={cls.trashIcon} />
+              <span className={cls.clearCartLabel}>Очистити корзину</span>
+            </Button>
+          </div>
+          <div className={cls.main}>
+            <Section>
+              {/* Items section */}
+              {cartData && (
+                <ul className={cls.itemsList}>
+                  {cartData.map((item) => (
+                    <CartPizzaItem
+                      key={item.id}
+                      {...item}
+                    />
+                  ))}
+                </ul>
+              )}
+            </Section>
+
+            {/* Order total section */}
+            <Section sectionClassName={cls.orderTotalSection}>
+              <p className={cls.priceLabel}>
+                Кількість: <span className={cls.priceNum}>{cartTotalItems}</span>
+              </p>
+              <p className={cls.totalPriceLabel}>
+                Сума: <span className={cls.totalPriceNum}>{cartTotalPrice} ₴</span>
+              </p>
+            </Section>
+          </div>
+          <div className={cls.footer}>
+            <AppLink
+              className={cls.cartBackToMainLink}
+              to={RoutePath.home}
+            >
+              <ArrowLeftSVG /> Назад
+            </AppLink>
+            {/* TODO: change to link when payment service connected  */}
+            <AppLink
+              className={cls.cartPayLink}
+              to="#"
+            >
+              Сплатити
+            </AppLink>
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 

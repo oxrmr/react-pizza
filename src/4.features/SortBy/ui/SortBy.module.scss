@@ -6,7 +6,8 @@
 .sortButton {
   display: flex;
   gap: 5px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
+
   white-space: nowrap;
   background-color: transparent;
   border-color: transparent;
@@ -20,9 +21,9 @@
 }
 
 .sortByTitle {
-  color: $thamarBlack;
   font-size: 16px;
   font-weight: 600;
+  color: var(--thamar-black);
 }
 
 .arrowIcon {
@@ -42,7 +43,7 @@
   font-size: 16px;
   text-align: center;
   color: var(--brave-orange);
-  border-bottom: 1px dotted var(--brave-orange);
+  border-bottom: 1px dotted currentColor;
 }
 
 .optionsList {
@@ -53,7 +54,7 @@
   margin-top: 15px;
   padding: 10px 0;
 
-  color: $thamarBlack;
+  color: var(--thamar-black);
   background: #ffffff;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
   border-radius: 10px;

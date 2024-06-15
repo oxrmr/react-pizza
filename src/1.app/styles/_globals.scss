@@ -8,6 +8,10 @@ html {
   scroll-behavior: smooth;
 }
 
+// --------
+.emptyPC {
+}
+// --------
 * {
   box-sizing: border-box;
 }
@@ -19,12 +23,11 @@ body {
 
   font-family: Nunito, sans-serif;
   letter-spacing: 0.04em;
-  color: $thamarBlack;
+  color: var(--thamar-black);
   background-color: var(--brite-gold);
 }
 
 .app {
-  min-height: 100vh;
   padding: 0 var(--container-pd-sm) 64px;
   background-color: var(--snow);
   border-radius: 20px;
@@ -59,15 +62,19 @@ body {
 
   &__cart-link {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
-    padding: 12px 25px;
+
+    min-width: 140px;
+    max-width: 150px;
+    padding: 10px;
 
     line-height: 23px;
     text-decoration: none;
 
     color: var(--snow);
     background-color: var(--brave-orange);
-    border-radius: 30px;
+    border-radius: var(--btn-radius);
     transition: background-color ease 0.25s;
 
     &:hover {

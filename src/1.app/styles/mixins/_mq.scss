@@ -2,67 +2,6 @@ $tablet: 768px;
 $laptop: 1024px;
 $desktop: 1280px;
 
-@mixin mq($point) {
-  @if $point == mobile-only {
-    @media (max-width: ($tablet - 0.1)) {
-      @content;
-    }
-    // //////////Tablet/////////////////////
-  } @else if $point == tablet {
-    @media (min-width: $tablet) {
-      @content;
-    }
-  } @else if $point == tablet-only {
-    @media (min-width: $tablet) and (max-width: ($laptop - 0.1)) {
-      @content;
-    }
-  } @else if $point == max-tablet {
-    @media (max-width: ($laptop - 1px)) {
-      @content;
-    }
-    // ///////////Laptop//////////////////////
-  } @else if $point == laptop {
-    @media (min-width: $laptop) {
-      @content;
-    }
-  } @else if $point == max-laptop {
-    @media (max-width: ($desktop - 0.1)) {
-      @content;
-    }
-    // ////////////Desktop//////////////////////
-  } @else if $point == desktop {
-    @media (min-width: $desktop) {
-      @content;
-    }
-  }
-  // ///////////Tablet-Laptop ////////////////////
-  @else if $point == tablet-laptop {
-    @media (min-width: $tablet) and (max-width: ($desktop - 0.1)) {
-      @content;
-    }
-  } @else if $point == hover {
-    @media (hover: hover) {
-      @content;
-    }
-  } @else if $point == hover-none {
-    @media (hover: none) {
-      @content;
-    }
-  }
-}
-
-@mixin hover {
-  @media (hover) {
-    @content;
-  }
-}
-
-@mixin hoverNone {
-  @media (hover: none) {
-    @content;
-  }
-}
-
 @mixin mobileOnly {
   @media (max-width: ($tablet - 0.1)) {
     @content;
@@ -94,7 +33,7 @@ $desktop: 1280px;
 }
 
 @mixin maxLaptop {
-  @media (max-width: ($laptop - 0.1)) {
+  @media (max-width: ($desktop - 0.1)) {
     @content;
   }
 }

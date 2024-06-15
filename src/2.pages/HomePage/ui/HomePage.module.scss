@@ -1,27 +1,27 @@
 .optionsSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   margin: 0 0 32px;
 
-  @include mq(desktop) {
-    display: flex;
+  @include laptop {
+    align-items: baseline;
+    gap: 0 20px;
+  }
+
+  @include desktop {
+    flex-wrap: nowrap;
     justify-content: space-between;
-    align-items: center;
-    padding-right: 10px;
   }
 }
 
 .optionsCategories {
-  @include mq(max-laptop) {
+  display: flex;
+  gap: 5px;
+  overflow: auto;
+
+  @include maxLaptop {
     margin-bottom: 20px;
-  }
-
-  @media screen and (min-width: 870px) and (max-width: 1279px) {
-    justify-content: center;
-  }
-}
-
-.optionsSortBy {
-  @include mq(max-laptop) {
-    margin: 0 auto;
   }
 }
 

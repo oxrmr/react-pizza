@@ -1,17 +1,15 @@
 .Categories {
-  display: flex;
-  gap: 10px;
   padding-bottom: 15px;
-  overflow: auto;
 }
 
 .btn {
   font-weight: 700;
   white-space: nowrap;
-  color: $thamarBlack;
+  color: var(--thamar-black);
+  border-radius: var(--btn-radius);
 
   &.active {
-    background-color: #282828;
+    background-color: var(--dire-wolf);
     color: var(--snow);
   }
 }

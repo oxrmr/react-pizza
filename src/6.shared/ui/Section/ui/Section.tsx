@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode } from "react";
 
 interface SectionProps {
   title?: string;
@@ -12,7 +12,7 @@ export const Section: FC<SectionProps> = (props) => {
 
   return (
     <section className={sectionClassName}>
-      <h2 className={titleClassName}>{title}</h2>
+      {title && <h2 className={titleClassName}>{title}</h2>}
       {children}
     </section>
   );

@@ -100,7 +100,11 @@
 
 .priceNum,
 .totalPriceNum {
-  font-weight: 700;
+  font-weight: 800;
+}
+
+.totalPriceNum {
+  color: var(--brave-orange);
 }
 
 .totalPriceLabel {
@@ -114,12 +118,9 @@
   gap: 10px;
 }
 
-.goBackLink {
-  gap: 10px;
-}
-
-.goBackLink,
-.payLink {
+.emptyCartBackToMainLink,
+.cartPayLink,
+.cartBackToMainLink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -132,10 +133,57 @@
   color: #cacaca;
   text-decoration: none;
   border: 1px solid #d3d3d3;
-  border-radius: 30px;
+  border-radius: var(--btn-radius);
 }
 
-.payLink {
+.emptyCartBackToMainLink,
+.cartBackToMainLink {
+  gap: 15px;
+}
+
+.cartPayLink {
   color: var(--snow);
   background-color: var(--brave-orange);
+}
+
+// Empty cart
+
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emptyCartTitle {
+  margin: 0 0 15px 0;
+
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.01em;
+  color: #000;
+
+  @include tablet {
+    font-size: 32px;
+  }
+}
+
+.emptyCartAfterTitle {
+  margin: 0 0 45px 0;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 145%;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #777;
+}
+
+.emptyCartImg {
+  width: 100%;
+  margin: 0 0 75px 0;
+}
+
+.emptyCartBackToMainLink {
+  color: var(--snow);
+  background-color: var(--dire-wolf);
 }

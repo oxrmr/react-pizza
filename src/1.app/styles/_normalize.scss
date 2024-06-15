@@ -8,11 +8,11 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-svg *[fill] {
+svg:not(.emptyPC) > [fill] {
   fill: currentColor;
 }
 
-svg *[stroke] {
+svg:not(.emptyPC) > [stroke] {
   stroke: currentColor;
 }
 
