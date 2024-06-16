@@ -34,7 +34,7 @@ const CartPage: FC = () => {
             Найімовірніше, ви не замовляли ще піцу.<span className={cls.breakLine}></span> Щоб
             замовити піцу, перейдіть на головну сторінку.
           </p>
-          <PersonWithCartSVG className={classNames(cls.emptyCartImg, {}, [" emptyPC"])} />
+          <PersonWithCartSVG className={classNames(cls.emptyCartImg, {}, [])} />
           <AppLink
             className={cls.emptyCartBackToMainLink}
             to={RoutePath.home}
