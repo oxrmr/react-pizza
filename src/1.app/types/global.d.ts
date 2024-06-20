@@ -1,6 +1,6 @@
 /// <reference types="vite-plugin-svgr/client" />
 
-declare module "*module.scss" {
+declare module "*.module.scss" {
   interface ClassNames {
     [className: string]: string;
   }

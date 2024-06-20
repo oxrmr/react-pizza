@@ -8,12 +8,13 @@ import { selectCartItems } from "entities/CartPizzaItem/model/selectors/selectCa
 import { selectCartItemsQuantity } from "entities/CartPizzaItem/model/selectors/selectCartItemsQuantity/selectCartItemsQuantity";
 import { selectCartTotalPrice } from "entities/CartPizzaItem/model/selectors/selectCartTotalPrice/selectCartTotalPrice";
 import { cartActions } from "entities/CartPizzaItem/model/slice/cartSlice";
-import { ArrowLeftSVG, CartSVG, PersonWithCartSVG, TrashCanSVG } from "shared/assets";
-import { classNames } from "shared/lib/classNames/classNames";
+import { ArrowLeftSVG, CartSVG, TrashCanSVG } from "shared/assets";
 import { AppLink } from "shared/ui/AppLink/AppLink";
+import { LinkRoles, LinkThemes } from "shared/ui/AppLink/types";
 import { Button } from "shared/ui/Button/Button";
 import { Section } from "shared/ui/Section";
 import cls from "./CartPage.module.scss";
+import { EmptyCart } from "./EmptyCart";
 
 const CartPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -28,20 +29,7 @@ const CartPage: FC = () => {
   return (
     <div className={cls.CartPage}>
       {!cartTotalItems ? (
-        <div className={cls.emptyCart}>
-          <h3 className={cls.emptyCartTitle}>Корзина порожня 😕</h3>
-          <p className={cls.emptyCartAfterTitle}>
-            Найімовірніше, ви не замовляли ще піцу.<span className={cls.breakLine}></span> Щоб
-            замовити піцу, перейдіть на головну сторінку.
-          </p>
-          <PersonWithCartSVG className={classNames(cls.emptyCartImg, {}, [])} />
-          <AppLink
-            className={cls.emptyCartBackToMainLink}
-            to={RoutePath.home}
-          >
-            <ArrowLeftSVG /> На головну
-          </AppLink>
-        </div>
+        <EmptyCart />
       ) : (
         <>
           <div className={cls.header}>
@@ -84,7 +72,9 @@ const CartPage: FC = () => {
           </div>
           <div className={cls.footer}>
             <AppLink
-              className={cls.cartBackToMainLink}
+              className={cls.goBackLink}
+              role={LinkRoles.button}
+              theme={LinkThemes.grey}
               to={RoutePath.home}
             >
               <ArrowLeftSVG /> Назад
@@ -92,6 +82,8 @@ const CartPage: FC = () => {
             {/* TODO: change to link when payment service connected  */}
             <AppLink
               className={cls.cartPayLink}
+              role={LinkRoles.button}
+              theme={LinkThemes.accent}
               to="#"
             >
               Сплатити

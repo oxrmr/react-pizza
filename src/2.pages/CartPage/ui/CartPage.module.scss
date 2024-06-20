@@ -74,7 +74,7 @@
   }
 }
 
-.main {
+.pizzaItemsSection {
   margin-bottom: 40px;
 }
 
@@ -118,26 +118,8 @@
   gap: 10px;
 }
 
-.emptyCartBackToMainLink,
-.cartPayLink,
-.cartBackToMainLink {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-width: 120px;
-  max-width: 180px;
-  width: 100%;
-  height: 50px;
-
-  color: #cacaca;
-  text-decoration: none;
-  border: 1px solid #d3d3d3;
-  border-radius: var(--btn-radius);
-}
-
-.emptyCartBackToMainLink,
-.cartBackToMainLink {
+.emptyCartLink,
+.goBackLink {
   gap: 15px;
 }
 
@@ -168,11 +150,12 @@
 }
 
 .emptyCartAfterTitle {
+  max-width: 395px;
   margin: 0 0 45px 0;
 
   font-weight: 400;
   font-size: 18px;
-  line-height: 145%;
+  line-height: 1.6;
   letter-spacing: 0.01em;
   text-align: center;
   color: #777;
@@ -181,9 +164,4 @@
 .emptyCartImg {
   width: 100%;
   margin: 0 0 75px 0;
-}
-
-.emptyCartBackToMainLink {
-  color: var(--snow);
-  background-color: var(--dire-wolf);
 }

@@ -4,12 +4,8 @@
 @import "./mixins/module";
 
 html {
-  padding: 20px 15px 60px;
+  padding: 20px 15px 40px;
   scroll-behavior: smooth;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 body {
@@ -55,33 +51,23 @@ body {
       margin-bottom: 32px;
     }
   }
-
-  &__cart-link {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    min-width: 140px;
-    max-width: 150px;
-    padding: 10px;
-
-    line-height: 23px;
-    text-decoration: none;
-
-    color: var(--snow);
-    background-color: var(--brave-orange);
-    border-radius: var(--btn-radius);
-    transition: background-color ease 0.25s;
-
-    &:hover {
-      background-color: darken($color: #fe5f1e, $amount: 10%);
-    }
-  }
 }
 
-// TODO: add common styles for all links in its own file DRY
-
 .header-cart-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px 30px;
+  line-height: 23px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--snow);
+
+  background-color: var(--brave-orange);
+  border-radius: var(--radius-30);
+  transition: background-color ease 0.25s;
+
   &__price {
     margin-right: 5px;
     padding-right: 5px;
@@ -93,19 +79,9 @@ body {
     height: 16px;
     margin-right: 5px;
   }
-}
 
-// TODO: add title to buttons without label and .visually-hidden element
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+  &:hover,
+  &:focus {
+    background-color: darken($color: #fe5f1e, $amount: 10%);
+  }
 }

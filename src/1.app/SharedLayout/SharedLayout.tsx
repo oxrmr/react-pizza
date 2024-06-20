@@ -11,8 +11,8 @@ import { AppLink } from "shared/ui/AppLink/AppLink";
 
 export const SharedLayout = () => {
   const location = useLocation();
-  const totalPrice = useSelector(selectCartItemsQuantity);
-  const totalItems = useSelector(selectCartTotalPrice);
+  const totalItems = useSelector(selectCartItemsQuantity);
+  const totalPrice = useSelector(selectCartTotalPrice);
 
   return (
     <>

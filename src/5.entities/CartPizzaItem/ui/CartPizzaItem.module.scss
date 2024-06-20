@@ -107,15 +107,17 @@
   border: 2px solid currentColor;
   border-radius: 50%;
 
-  @include hover {
-    &:hover,
-    &:focus {
-      box-shadow: var(--shadow-4px-dark);
-    }
+  &:hover,
+  &:focus-visible {
+    box-shadow: var(--shadow-4px-dark);
+  }
 
-    &:active {
-      box-shadow: var(--shadow-2px-dark);
-    }
+  @include supportsNotFocusVisible {
+    box-shadow: var(--shadow-4px-dark);
+  }
+
+  &:active {
+    box-shadow: var(--shadow-2px-dark);
   }
 }
 

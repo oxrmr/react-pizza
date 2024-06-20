@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
+import { BugButton } from "app/providers/ErrorBoundary";
 import { useAppDispatch } from "app/providers/StoreProvider/config/hooks/useAppDispatch";
 import { selectIsLoading } from "entities/PizzaItem/model/selectors/selectIsLoading/selectIsLoading";
 import { selectPizzaData } from "entities/PizzaItem/model/selectors/selectPizzaData/selectAllItems";
@@ -46,6 +47,7 @@ const HomePage: FC = () => {
 
   return (
     <main className={cls.HomePage}>
+      <BugButton />
       <Section sectionClassName={cls.optionsSection}>
         <Categories className={cls.optionsCategories} />
         <SortBy className={cls.optionsSortBy} />

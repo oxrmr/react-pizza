@@ -34,7 +34,9 @@
 
 @mixin supportsNotFocusVisible {
   @supports not selector(:focus-visible) {
-    @content;
+    &:focus {
+      @content;
+    }
   }
 }
 

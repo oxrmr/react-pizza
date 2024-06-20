@@ -1,7 +1,5 @@
 <svg width="300" height="255" viewBox="0 0 300 265" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_45_0)">
-<g filter="url(#filter0_d_45_0)">
- 
 <path d="M212.984 20.1328C244.015 27.8116 269.535 61.4504 269.139 94.6172C268.751 127.712 242.445 160.335 220.432 191.73C198.481 223.129 180.948 253.32 158.757 254.92C136.538 256.496 109.696 229.448 87.4853 211.507C65.2048 193.57 47.6061 184.731 32.4473 168.966C17.2884 153.2 4.63148 130.5 7.59498 110.175C10.5585 89.8499 29.1502 71.9127 48.5952 62.1263C68.1062 52.2718 88.4046 50.5721 116.864 40.5816C145.324 30.5912 181.922 12.3981 212.984 20.1328Z" fill="#F8F8F8"/>
 <path d="M197.278 173.629L156.709 91.0457C155.471 90.3018 150.502 87.0103 150.502 87.0103" stroke="#DFDFDF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M153.799 97.5847C153.314 95.933 151.86 92.5295 151.86 92.5295C150.972 92.4735 144.789 89.194 144.789 89.194" stroke="#DFDFDF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -28,8 +26,6 @@
 <path d="M161.658 140.878H273.577" stroke="#DFDFDF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M133.288 93.5893L143.02 89.498" stroke="#DFDFDF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M171.398 140.878C170.137 137.202 156.763 97.7487 156.763 97.7487" stroke="#DFDFDF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
- 
-</g>
 </g>
 <defs>
 <filter id="filter0_d_45_0" x="-4" y="0" width="309.53" height="262.986" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">

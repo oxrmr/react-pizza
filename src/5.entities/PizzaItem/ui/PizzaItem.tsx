@@ -16,16 +16,18 @@ export const PizzaItem: FC<PizzaItemProps> = (props) => {
   const { className = "", id, title, types, sizes, price } = props;
   const [selectedType, setSelectedType] = useState(types[0]);
   const [selectedSize, setSelectedSize] = useState(sizes[0]);
+  const [orderId, setOrderId] = useState(id + "type");
 
-  // TODO:Refactor orderId
-  const orderId = id + "type" + selectedType + selectedSize;
+  // const orderId = id + "type" + selectedType + selectedSize;
 
   const handleTypeClick = (type: string) => () => {
     setSelectedType(type);
+    setOrderId((prev) => prev + type);
   };
 
   const handleSizeClick = (size: number) => () => {
     setSelectedSize(size);
+    setOrderId((prev) => prev + size);
   };
 
   const newItem = {

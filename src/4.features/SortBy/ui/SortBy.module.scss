@@ -30,10 +30,10 @@
   position: absolute;
   left: 0;
   top: 50%;
-  translate: (-50%) 0;
+  translate: (-50%);
 
   &.rotate {
-    rotate: (180deg) 0;
+    rotate: (180deg);
   }
 }
 
@@ -51,11 +51,12 @@
   right: 0;
   display: none;
   width: 160px;
+
   margin-top: 15px;
   padding: 10px 0;
-
   color: var(--thamar-black);
-  background: #ffffff;
+  background-color: var(--snow);
+
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
   border-radius: 10px;
   overflow: hidden;
@@ -74,30 +75,28 @@
 }
 
 .optionsButton {
+  $bgColor: rgba(254, 95, 30, 0.05);
+
   width: 100%;
   padding: 12px;
+  background-color: transparent;
   border-color: transparent;
   border-radius: 0;
-  background-color: transparent;
   transition: color var(--duration) var(--type), background-color var(--duration) var(--type);
   cursor: pointer;
 
   &.active {
-    font-weight: bold;
+    font-weight: 700;
     color: var(--brave-orange);
-    background: rgba(254, 95, 30, 0.05);
+    background: $bgColor;
   }
 
-  @include hover {
-    &:hover,
-    &:focus {
-      background: rgba(254, 95, 30, 0.05);
-    }
+  &:hover,
+  &:focus-visible {
+    background: $bgColor;
   }
 
-  @include hoverNone {
-    &:active {
-      background: rgba(254, 95, 30, 0.05);
-    }
+  @include supportsNotFocusVisible {
+    background: $bgColor;
   }
 }

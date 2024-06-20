@@ -1,30 +1,30 @@
-.PageError {
+.NoRoutePage {
   display: grid;
   place-content: center;
-  gap: 60px;
   height: 70vh;
 }
 
-.errorMessage {
+.title {
   margin-bottom: 10px;
   font-size: 32px;
   font-weight: 700;
 }
 
-.afterErrorText {
+.aftertitle {
+  margin-bottom: 40px;
   font-size: 18px;
   text-align: center;
   color: #7b7b7b;
 }
 
-.reloadPageBtn {
+.goHomeLink {
   justify-self: center;
   gap: 10px;
   padding: 0 25px;
   font-weight: 600;
 }
 
-.reloadIcon {
+.homeIcon {
   width: 15px;
   height: 15px;
   fill: currentColor;

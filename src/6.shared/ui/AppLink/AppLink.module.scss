@@ -1,2 +1,51 @@
 .AppLink {
+  text-decoration: none;
+}
+
+// Roles
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 30px;
+  color: #cacaca;
+  text-decoration: none;
+  border: 1px solid #d3d3d3;
+  border-radius: var(--radius-30);
+}
+
+// Themes
+.grey {
+  color: #cacaca;
+  border: 1px solid #d3d3d3;
+}
+
+.dark {
+  color: var(--snow);
+  background-color: var(--dire-wolf);
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--brave-orange);
+
+    @include supportsNotFocusVisible {
+      border-color: var(--brave-orange);
+    }
+  }
+}
+
+.accent {
+  color: var(--snow);
+  background-color: var(--brave-orange);
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--dire-wolf);
+  }
+
+  @include supportsNotFocusVisible {
+    border-color: var(--dire-wolf);
+  }
 }

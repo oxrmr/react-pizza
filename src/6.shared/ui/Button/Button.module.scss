@@ -5,7 +5,7 @@
 
   color: var(--thamar-black);
   background-color: transparent;
-
+  border-radius: var(--radius-30);
   border: 0;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
@@ -17,7 +17,13 @@
   color: var(--brave-orange);
   background-color: var(--snow);
 
-  @include hoverFocus {
+  &:hover,
+  &:focus-visible {
+    color: var(--snow);
+    background-color: var(--brave-orange);
+  }
+
+  @include supportsNotFocusVisible {
     color: var(--snow);
     background-color: var(--brave-orange);
   }
@@ -26,7 +32,12 @@
 .greyButton {
   background-color: var(--doctor);
 
-  @include hoverFocus {
+  &:hover,
+  &:focus-visible {
+    background-color: darken(#f9f9f9, 5%);
+  }
+
+  @include supportsNotFocusVisible {
     background-color: darken(#f9f9f9, 5%);
   }
 }
