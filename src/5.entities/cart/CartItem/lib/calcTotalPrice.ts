@@ -1,5 +1,5 @@
-import type { ICartItem } from "../../../../4.features/product/model/types";
+import type { OrderedProduct } from "../model/types";
 
-export const calcTotalPrice = (items: ICartItem[]) => {
+export const calcTotalPrice = (items: OrderedProduct[]) => {
   return items.reduce((total, item) => total + item.price * item.quantity, 0);
 };

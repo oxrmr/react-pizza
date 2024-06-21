@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { ICartItem } from "entities/cart/CartItem";
 import { calcTotalPrice } from "entities/cart/CartItem/lib/calcTotalPrice";
 import type { CartSchema } from "../types";
+import type { OrderedProduct } from "entities/cart/CartItem";
 
 const initialState: CartSchema = { items: [], totalPrice: 0 };
 
@@ -9,7 +9,7 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem(state, { payload }: PayloadAction<ICartItem>) {
+    addItem(state, { payload }: PayloadAction<OrderedProduct>) {
       const item = state.items.find((item) => item.id === payload.id);
       if (item) {
         item.quantity += 1;
