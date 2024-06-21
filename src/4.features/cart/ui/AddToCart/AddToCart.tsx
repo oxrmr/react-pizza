@@ -1,6 +1,6 @@
 import type { FC } from "react";
 
-import type { ICartItem } from "entities/cart/CartItem";
+import type { OrderedProduct } from "entities/cart/CartItem";
 
 import { selectCartItemQuantity } from "features/cart/model/selectors/selectCartItemQuantity/selectCartItemQuantity";
 import { cartActions } from "features/cart/model/slice/cartSlice";
@@ -12,7 +12,7 @@ import { Button, ButtonSizes, ButtonThemes } from "shared/ui/Button/Button";
 import cls from "./AddToCart.module.scss";
 
 interface AddToCartProps {
-  item: ICartItem;
+  item: OrderedProduct;
   orderId: string;
   className?: string;
 }

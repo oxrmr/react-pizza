@@ -7,10 +7,10 @@ import { Button } from "shared/ui/Button/Button";
 
 import cls from "./CartItem.module.scss";
 import { cartActions } from "features/cart/model/slice/cartSlice";
-import type { ICartItem } from "..";
+import type { OrderedProduct } from "..";
 
 export interface CartItemProps {
-  pizzaData: ICartItem;
+  pizzaData: OrderedProduct;
   className?: string;
 }
 
