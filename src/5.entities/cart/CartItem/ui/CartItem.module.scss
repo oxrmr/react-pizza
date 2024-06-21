@@ -1,0 +1,159 @@
+.CartItem {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: var(--border-primary);
+
+  @include mobileOnly {
+    position: relative;
+    flex-direction: column;
+  }
+
+  @include tablet {
+    justify-content: space-between;
+  }
+}
+
+.itemLeftWrapper {
+  display: flex;
+  align-items: center;
+
+  @include mobileOnly {
+    flex-direction: column;
+  }
+}
+
+.image {
+  max-width: 80px;
+  width: 100%;
+
+  @include mobileOnly {
+    max-width: 240px;
+  }
+
+  @include tablet {
+    margin: 0 30px 0 0;
+  }
+}
+
+.textWrapper {
+  letter-spacing: 0.01em;
+
+  @include mobileOnly {
+    text-align: center;
+    margin: 0 0 20px 0;
+  }
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+
+  @include tablet {
+    font-size: 22px;
+  }
+}
+
+.afterTitle {
+  letter-spacing: 0.01em;
+  color: var(--grey);
+
+  @include tablet {
+    font-size: 18px;
+  }
+}
+
+.itemRightWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @include mobileOnly {
+    flex-direction: column-reverse;
+  }
+
+  @include laptop {
+    gap: 40px;
+  }
+}
+
+// Quantity counter start
+.quantityCounter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  .quantity {
+    min-width: 40px;
+    max-width: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .decreaseBtn,
+  .increaseBtn {
+    --wh-unit: 30px;
+    --shadow-unit: 4px;
+    --shadow: 0 var(shadow-unit) var(shadow-unit) var(--grey-alpha-25);
+
+    width: var(--wh-unit);
+    height: var(--wh-unit);
+    color: var(--color-accent);
+    border: 2px solid currentColor;
+    border-radius: 50%;
+
+    &:hover,
+    &:focus-visible {
+      box-shadow: var(--shadow);
+    }
+
+    @include supportsNotFocusVisible {
+      box-shadow: var(--shadow);
+    }
+
+    &:active {
+      --shadow-unit: 2px;
+      box-shadow: var(--shadow);
+    }
+  }
+}
+// Price
+.price {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+
+  @include tablet {
+    min-width: 100px;
+  }
+}
+
+.removeBtn {
+  --wh-unit: 30px;
+  --shadow: 0 4px 4px var(--grey-alpha-25);
+
+  width: var(--unit);
+  height: var(--unit);
+  color: var(--grey-alpha-25);
+  background-color: var(--color-primary-light);
+  border: 2px solid currentColor;
+  border-radius: 50%;
+
+  @include mobileOnly {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &:hover,
+  &:focus-visible {
+    box-shadow: var(--shadow);
+  }
+
+  @include supportsNotFocusVisible {
+    box-shadow: var(--shadow);
+  }
+}

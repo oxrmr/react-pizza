@@ -3,43 +3,44 @@
 
 :root {
   //---------------------------------------- Fonts ----------------------------------------
-
   --ff: "Nunito", sans-serif;
 
   --fz-s: 14px;
   --lh-s: 22px;
+  --font-sm: var(--lh-s) / var(--fz-s);
 
   --fz-m: 16px;
   --lh-m: 24px;
+  --font-md: var(--lh-m) / var(--fz-m);
 
   --fz-l: 24px;
   --lh-l: 32px;
+  --font-lg: var(--lh-l) / var(--fz-l);
 
   --fz-xl: 32px;
-  --lh-l: 40px;
-  //---------------------------------------- Colors ----------------------------------------
-  --snow: #fff;
-  --brite-gold: #ffdf8c;
-  --bleached-silk: #f3f3f3;
-  --brave-orange: #fe5f1e;
-  --doctor: #f9f9f9;
-  --shoe-wax: #2c2c2c;
-  --wet-stone: rgba(0, 0, 0, 0.04);
-  --shadow: rgba(0, 0, 0, 0.25);
-  --dire-wolf: #282828;
-  --retro-orange: #e5490b;
-  --thamar-black: #181818;
+  --lh-xl: 40px;
+  --font-xl: var(--lh-xl) / var(--fz-xl);
 
-  //----------------------------------------Hover colors----------------------------------------
+  //---------------------------------------- Colors ----------------------------------------
+  --color-primary-dark: #000;
+  --color-primary-light: #fff;
+
+  --color-accent-lightest: rgba(254, 95, 30, 0.05);
+  --color-accent: #fe5f1e;
+  --color-accent-darker: #e5490b;
+  --color-accent-secondary: #ffdf8c;
+
+  --grey-lighten: #f9f9f9;
+  --grey-light: #f3f3f3;
+  --grey: #7b7b7b;
+  --grey-dark: #4d4d4d;
+  --grey-darken: #3a3939;
+  --grey-alpha-04: rgba(0, 0, 0, 0.04);
+  --grey-alpha-09: rgba(0, 0, 0, 0.09);
+  --grey-alpha-25: rgba(0, 0, 0, 0.25);
 
   //----------------------------------------Widget Sizes----------------------------------------
   --navbar-h: 50px;
-  --sidebar-w: 300px;
-  --sidebar-collapsed-w: 80px;
-
-  //---------------------------------------- Margins-Paddings ----------------------------------------
-  --container-pd-sm: 15px;
-  --container-pd-md: 20px;
 
   //---------------------------------------- Z-Indexes ----------------------------------------
   --overlay-z-index: 9;
@@ -47,24 +48,11 @@
   --loader-z-index: 11;
 
   //---------------------------------------- Transitions ----------------------------------------
-  --type: ease-in-out;
-  --duration: 0.15s;
+  --transition-primary: 0.15s ease-in-out;
 
   //---------------------------------------- Borders ----------------------------------------
-
-  --border-1px-lightgrey: 1px solid #f6f6f6;
-
-  //---------------------------------------- Border radiuses ----------------------------------------
-
-  --radius-30: 30px;
+  --border-primary: 1px solid var(--grey-lighten);
 
   //---------------------------------------- Shadows ----------------------------------------
-
-  --shadow-4px: 4px;
-  --shadow-2px: 2px;
-
-  --shadow-4px-dark: 0 var(--shadow-4px) var(--shadow-4px) var(--shadow);
-  --shadow-2px-dark: 0 var(--shadow-2px) var(--shadow-2px) var(--shadow);
-
-  //---------------------------------------- Hover ----------------------------------------
+  --text-shadow-primary: 0 4px 4px var(--grey-alpha-25);
 }

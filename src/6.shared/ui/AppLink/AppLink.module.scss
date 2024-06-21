@@ -9,43 +9,53 @@
   align-items: center;
   justify-content: center;
   height: 50px;
-  padding: 0 30px;
-  color: #cacaca;
-  text-decoration: none;
-  border: 1px solid #d3d3d3;
-  border-radius: var(--radius-30);
+  padding: 0 40px;
+
+  color: var(--grey);
+  border-radius: 30px;
+  transition: background-color var(--transition-primary), color var(--transition-primary);
 }
 
 // Themes
 .grey {
-  color: #cacaca;
-  border: 1px solid #d3d3d3;
-}
-
-.dark {
-  color: var(--snow);
-  background-color: var(--dire-wolf);
+  color: var(--grey);
+  border: 1px solid currentColor;
+  opacity: 0.45;
 
   &:hover,
   &:focus-visible {
-    border-color: var(--brave-orange);
+    color: var(--grey-darken);
 
     @include supportsNotFocusVisible {
-      border-color: var(--brave-orange);
+      color: var(--grey-darken);
+    }
+  }
+}
+
+.dark {
+  color: var(--color-primary-light);
+  background-color: var(--color-primary-dark);
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--color-accent);
+
+    @include supportsNotFocusVisible {
+      border-color: var(--color-accent);
     }
   }
 }
 
 .accent {
-  color: var(--snow);
-  background-color: var(--brave-orange);
+  color: var(--color-primary-light);
+  background-color: var(--color-accent);
 
   &:hover,
-  &:focus-visible {
-    border-color: var(--dire-wolf);
+  &:focus {
+    background-color: var(--color-accent-darker);
   }
 
   @include supportsNotFocusVisible {
-    border-color: var(--dire-wolf);
+    background-color: var(--color-accent-darker);
   }
 }

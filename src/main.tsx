@@ -1,10 +1,10 @@
 import ReactDOM from "react-dom/client";
 
-import { ErrorBoundary } from "app/providers/ErrorBoundary";
+import { ErrorBoundary } from "app/providers/error-boundary";
 
 import App from "app/App";
-import StoreProvider from "app/providers/StoreProvider/ui/StoreProvider";
 import "app/styles/index.scss";
+import { StoreProvider } from "app/providers/store/ui/StoreProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(

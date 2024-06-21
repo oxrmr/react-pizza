@@ -1,0 +1,37 @@
+.AddToCartBtn {
+  min-width: 125px;
+  max-width: 155px;
+  font-weight: 500;
+  color: var(--color-accent);
+
+  .plusIcon {
+    margin: 0 8px 0 0;
+  }
+
+  &:active {
+    translate: 0 (2px);
+  }
+}
+
+.quantity {
+  --wh-unit: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: var(--wh-unit);
+  height: var(--wh-unit);
+  margin: 0 0 0 8px;
+
+  font-size: 13px;
+  color: var(--color-primary-light);
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  transition: color var(--transition-primary), background-color var(--transition-primary),
+    border var(--transition-primary), font-size var(--transition-primary);
+
+  .AddToCartBtn:hover & {
+    border: 1px solid;
+    border-color: var(--color-primary-light);
+  }
+}

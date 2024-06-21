@@ -1,0 +1,33 @@
+.NoRoutePage {
+  display: grid;
+  place-content: center;
+  min-height: 70vh;
+  text-align: center;
+}
+
+.title {
+  margin: 0 0 15px 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.aftertitle {
+  margin: 0 0 60px 0;
+  font-size: 18px;
+  text-align: center;
+  color: var(--grey);
+}
+
+.goHomeLink {
+  justify-self: center;
+  gap: 10px;
+  padding: 0 25px;
+  font-weight: 600;
+}
+
+.homeIcon {
+  --wh-unit: 15px;
+  width: var(--wh-unit);
+  height: var(--wh-unit);
+  fill: var(--color-accent-secondary);
+}

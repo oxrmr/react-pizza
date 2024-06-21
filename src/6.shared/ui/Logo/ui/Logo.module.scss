@@ -11,21 +11,22 @@
 }
 
 .pizzaIcon {
-  width: 38px;
-  height: 38px;
+  --wh-unit: 38px;
+  width: var(--wh-unit);
+  height: var(--wh-unit);
 }
 
 .title {
-  margin-bottom: 5px;
+  margin: 0 0 5px 0;
   font-size: 26px;
   font-weight: 900;
   text-transform: uppercase;
-  color: #181818;
+  color: var(--color-primary-dark);
 }
 
 .afterTitle {
   text-align: center;
-  color: #7b7b7b;
+  color: var(--grey);
 
   @include mobileOnly {
     max-width: 240px;

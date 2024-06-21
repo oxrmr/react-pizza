@@ -1,12 +1,12 @@
-import { classNames } from "shared/lib/classNames/classNames";
-import { AppRouter } from "./AppRouter";
+import { Suspense } from "react";
+import { Router } from "./router";
 
-const App = () => {
+export default function App() {
   return (
-    <div className={classNames("app", {}, [])}>
-      <AppRouter />
+    <div className="app">
+      <Suspense>
+        <Router />
+      </Suspense>
     </div>
   );
-};
-
-export default App;
+}

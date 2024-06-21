@@ -1,9 +1,9 @@
-export enum LinkThemes {
+export enum AppLinkThemes {
   grey = "grey",
   dark = "dark",
   accent = "accent",
 }
 
-export enum LinkRoles {
+export enum AppLinkRoles {
   button = "btn",
 }

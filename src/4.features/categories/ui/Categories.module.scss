@@ -1,0 +1,14 @@
+.Categories {
+  padding: 0 0 15px 0;
+}
+
+.btn {
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--color-primary-dark);
+
+  &.active {
+    background-color: var(--color-primary-dark);
+    color: var(--color-primary-light);
+  }
+}

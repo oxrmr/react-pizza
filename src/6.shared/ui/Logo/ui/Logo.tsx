@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import { Link } from "react-router-dom";
 
-import { RoutePath } from "app/AppRouter/config/routesConfig";
+import { RoutePath } from "app/router/config/routesConfig";
 import { LogoSVG } from "shared/assets";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Logo.module.scss";
