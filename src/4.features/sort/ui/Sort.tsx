@@ -2,8 +2,8 @@ import { useEffect, useState, type SyntheticEvent } from "react";
 
 import { SortByArrowSVG } from "shared/assets";
 import { useAppDispatch } from "shared/lib";
-import { classNames } from "shared/lib/classNames/classNames";
-import { Button } from "shared/ui/Button/Button";
+import { classNames } from "shared/lib/utils/classNames/classNames";
+import { Button } from "shared/ui/button/Button";
 import { sortAction } from "../model/slice/sortSlice";
 import cls from "./Sort.module.scss";
 

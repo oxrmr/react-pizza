@@ -13,3 +13,6 @@ declare module "*.svg" {
   const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
   export default ReactComponent;
 }
+
+declare type RootState = ReturnType<typeof import("../store/config/storeConfig").store.getState>;
+declare type AppDispatch = typeof import("../store/config/storeConfig").store.dispatch;

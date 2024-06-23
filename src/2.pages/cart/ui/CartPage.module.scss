@@ -1,11 +1,13 @@
 .body {
   max-width: 820px;
+  margin: 0 auto;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 40px;
   color: var(--color-primary-dark);
   border-bottom: var(--border-primary);
 }
@@ -15,6 +17,8 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  font-size: 24px;
 
   @include laptop {
     gap: 15px;

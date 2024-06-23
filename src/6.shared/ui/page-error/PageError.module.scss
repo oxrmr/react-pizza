@@ -1,0 +1,31 @@
+.PageError {
+  display: grid;
+  place-content: center;
+  gap: 60px;
+  height: 70vh;
+}
+
+.errorMessage {
+  margin-bottom: 10px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.afterErrorText {
+  font-size: 18px;
+  text-align: center;
+  color: var(--grey);
+}
+
+.reloadPageBtn {
+  justify-self: center;
+  gap: 10px;
+  padding: 0 25px;
+  font-weight: 600;
+}
+
+.reloadIcon {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}

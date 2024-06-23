@@ -1,11 +1,9 @@
-import { useSelector } from "react-redux";
-
-import { classNames } from "shared/lib/classNames/classNames";
-import { Button, ButtonSizes, ButtonThemes } from "shared/ui/Button/Button";
+import { useAppDispatch, useAppSelector } from "shared/lib";
+import { classNames } from "shared/lib/utils/classNames/classNames";
+import { Button, ButtonSizes, ButtonThemes } from "shared/ui";
 import { selectCategoryIndex } from "../model/selectors/selectCategoryIndex/selectCategoryIndex";
 import { categoriesActions } from "../model/slice/categoriesSlice";
 import cls from "./Categories.module.scss";
-import { useAppDispatch } from "shared/lib";
 
 export interface CategoriesProps {
   className?: string;
@@ -16,7 +14,7 @@ export const Categories = (props: CategoriesProps) => {
   const { className = "" } = props;
 
   const dispatch = useAppDispatch();
-  const categoryIdx = useSelector(selectCategoryIndex);
+  const categoryIdx = useAppSelector(selectCategoryIndex);
 
   const handleClick = (index: number) => () => {
     dispatch(categoriesActions.setCategory(index));

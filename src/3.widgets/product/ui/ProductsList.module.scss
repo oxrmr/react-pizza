@@ -1,0 +1,55 @@
+.ProductsSection {
+  margin: 0 0 50px 0;
+
+  .sectionTitle {
+    margin: 0 0 48px 0;
+    font-size: 32px;
+    text-shadow: var(--text-shadow-primary);
+  }
+}
+
+.productsList {
+  --columns: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  justify-content: space-evenly;
+  row-gap: 50px;
+  column-gap: 30px;
+
+  @include tablet {
+    --columns: 2;
+  }
+  @include laptop {
+    --columns: 3;
+  }
+  @include desktop {
+    --columns: 4;
+  }
+}
+
+.optionsSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 0 32px;
+
+  @include laptop {
+    align-items: baseline;
+    gap: 0 20px;
+  }
+
+  @include desktop {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}
+
+.optionsCategories {
+  display: flex;
+  gap: 5px;
+  overflow: auto;
+
+  @include maxLaptop {
+    margin: 0 0 20px 0;
+  }
+}

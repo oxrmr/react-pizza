@@ -1,8 +1,9 @@
-import { RoutePath } from "app/router/config/routesConfig";
 import type { FC } from "react";
+
 import { HomeSVG } from "shared/assets";
-import { AppLink } from "shared/ui/AppLink/AppLink";
-import { AppLinkRoles, AppLinkThemes } from "shared/ui/AppLink/types";
+import { routesPath } from "shared/router";
+import { AppLink } from "shared/ui/app-link/AppLink";
+import { AppLinkRoles, AppLinkThemes } from "shared/ui/app-link/types";
 import cls from "./NoRoutePage.module.scss";
 
 const NoRoutePage: FC = () => {
@@ -16,7 +17,7 @@ const NoRoutePage: FC = () => {
         className={cls.goHomeLink}
         role={AppLinkRoles.button}
         theme={AppLinkThemes.dark}
-        to={RoutePath.home}
+        to={routesPath.home}
       >
         На головну <HomeSVG className={cls.homeIcon} />
       </AppLink>

@@ -1,5 +1,4 @@
-import { createReduxStore } from "app/providers/store/config/store";
-import { useDispatch } from "react-redux";
-// TODO:refactor
-const store = createReduxStore();
-export const useAppDispatch = useDispatch.withTypes<typeof store.dispatch>();
+import { useDispatch, useSelector, type TypedUseSelectorHook } from "react-redux";
+
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

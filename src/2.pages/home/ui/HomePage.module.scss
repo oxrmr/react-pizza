@@ -25,29 +25,6 @@
   }
 }
 
-.pizzasSection {
-  margin: 0 0 50px 0;
-
-  .sectionTitle {
-    margin: 0 0 48px 0;
-
-    font-size: 32px;
-    text-shadow: var(--text-shadow-primary);
-  }
-
-  .pizzaList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    place-items: center;
-    gap: 40px 30px;
-    align-items: end;
-
-    @include tablet {
-      gap: 60px 30px;
-    }
-  }
-}
-
 .pagination {
   @include mobileOnly {
     justify-content: center;

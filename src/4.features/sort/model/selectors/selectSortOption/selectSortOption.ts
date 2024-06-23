@@ -1,3 +1,3 @@
-import type { StoreSchema } from "app/providers/store/config/StoreSchema";
+import type { StoreSchema } from "app/store";
 
 export const selectSortOption = (state: StoreSchema) => state.sort.sortOption;

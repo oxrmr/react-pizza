@@ -1,3 +1,1 @@
-import { HomePageLazy as HomePage } from './ui/HomePage.lazy';
-
-export { HomePage };
+export { HomePageLazy as HomePage } from "./ui/HomePage.lazy";
