@@ -1,0 +1,40 @@
+.optionsSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 0 32px;
+
+  @include laptop {
+    align-items: baseline;
+    gap: 0 20px;
+  }
+
+  @include desktop {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}
+
+.optionsCategories {
+  display: flex;
+  gap: 5px;
+  overflow: auto;
+
+  @include maxLaptop {
+    margin: 0 0 20px 0;
+  }
+}
+
+.productsSection {
+  .sectionTitle {
+    margin: 0 0 48px 0;
+    font-size: 32px;
+    text-shadow: var(--text-shadow-primary);
+  }
+}
+
+.pagination {
+  @include mobileOnly {
+    justify-content: center;
+  }
+}

@@ -8,12 +8,12 @@
     "skipLibCheck": true,
 
     "paths": {
-      "app/*": ["1.app/*"],
-      "pages/*": ["2.pages/*"],
-      "widgets/*": ["3.widgets/*"],
-      "features/*": ["4.features/*"],
-      "entities/*": ["5.entities/*"],
-      "shared/*": ["6.shared/*"]
+      "app/*": ["app/*"],
+      "pages/*": ["pages/*"],
+      "widgets/*": ["widgets/*"],
+      "features/*": ["features/*"],
+      "entities/*": ["entities/*"],
+      "shared/*": ["shared/*"]
     },
 
     /* Bundler mode */
@@ -29,9 +29,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "types": ["vite-plugin-svgr/client"],
+    "types": ["vite-plugin-svgr/client", "vitest/globals"],
     "plugins": [{ "name": "ts-css-modules-vite-plugin", "root": "./" }]
   },
-  "include": ["src"],
+  "include": ["src", "vitest.setup.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

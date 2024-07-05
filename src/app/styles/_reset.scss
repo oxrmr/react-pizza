@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg > *[fill] {
+  fill: currentColor;
+}
+
+svg > *[stroke] {
+  stroke: currentColor;
+}
+
+button {
+  border: 0;
+  // removes icon shift on IOS
+  padding: 0;
+}

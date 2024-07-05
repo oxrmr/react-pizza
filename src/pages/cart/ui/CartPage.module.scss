@@ -1,0 +1,164 @@
+.body {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  color: var(--color-primary-dark);
+  border-bottom: var(--border-primary);
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  font-size: 24px;
+
+  @include laptop {
+    gap: 15px;
+  }
+}
+
+.cartIcon {
+  --wh-unit: 22px;
+  width: var(--wh-unit);
+  height: var(--wh-unit);
+
+  @include laptop {
+    --wh-unit: 30px;
+    width: var(--wh-unit);
+    height: var(--wh-unit);
+  }
+}
+
+.title {
+  font-weight: 700;
+  font-size: var(--font-l);
+  letter-spacing: 0.01em;
+  text-shadow: var(--text-shadow-primary);
+
+  @include laptop {
+    font-size: var(--fz-xl);
+  }
+}
+
+.clearCartButton {
+  color: var(--grey);
+  background-color: transparent;
+
+  @include tablet {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  @include hoverHover {
+    color: var(--grey-dark);
+  }
+
+  @include hoverNone {
+    color: var(--grey-dark);
+  }
+}
+
+.clearCartLabel {
+  font-size: var(--fz-m);
+
+  @include mobileOnly {
+    display: none;
+  }
+}
+
+.pizzaItemsSection {
+  margin: 0 0 40px 0;
+}
+
+.itemsList {
+  @include mobileOnly {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  margin: 0 0 30px 0;
+}
+
+.orderTotalSection {
+  display: flex;
+  margin: 0 0 50px 0;
+}
+
+.priceLabel,
+.totalPriceLabel {
+  display: flex;
+  gap: 5px;
+  font-size: var(--fz-m);
+}
+
+.priceNum,
+.totalPriceNum {
+  font-weight: 800;
+}
+
+.totalPriceNum {
+  color: var(--color-accent);
+}
+
+.totalPriceLabel {
+  margin: 0 0 0 auto;
+}
+
+// Footer
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.emptyCartLink,
+.goBackLink {
+  gap: 15px;
+}
+
+// Empty cart
+
+.emptyCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emptyCartTitle {
+  margin: 0 0 15px 0;
+
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.01em;
+  color: var(--color-primary-dark);
+
+  @include tablet {
+    font-size: 32px;
+  }
+}
+
+.emptyCartAfterTitle {
+  max-width: 395px;
+  margin: 0 0 45px 0;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: var(--grey);
+}
+
+.emptyCartImg {
+  width: 100%;
+  margin: 0 0 75px 0;
+}

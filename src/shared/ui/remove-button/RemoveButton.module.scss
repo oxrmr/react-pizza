@@ -1,0 +1,31 @@
+.removeBtn {
+  --wh-unit: 30px;
+  --shadow: 0 4px 4px var(--grey-alpha-25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: var(--wh-unit);
+  height: var(--wh-unit);
+
+  color: var(--grey-alpha-25);
+  background-color: var(--color-primary-light);
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: box-shadow var(--transition-primary);
+
+  @include mobileOnly {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @include hoverHover {
+    box-shadow: var(--shadow);
+  }
+
+  @include hoverNone {
+    box-shadow: var(--shadow);
+  }
+}

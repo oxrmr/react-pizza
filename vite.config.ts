@@ -1,28 +1,27 @@
-import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
-import { qrcode } from "vite-plugin-qrcode";
-import svgr from "vite-plugin-svgr";
+import react from '@vitejs/plugin-react';
+import { qrcode } from 'vite-plugin-qrcode';
+import svgr from 'vite-plugin-svgr';
+import { defineConfig } from 'vitest/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr(), qrcode()],
+  test: { globals: true, environment: 'jsdom', setupFiles: ['vitest.setup.ts'] },
   css: {
     preprocessorOptions: {
       scss: {
-        // example : additionalData: `@import "./src/design/styles/variables";`
-        // dont need include file extend .scss
-        additionalData: '@import "./src/1.app/styles/globals";',
+        additionalData: '@import "./src/app/styles/globals";',
       },
     },
   },
   resolve: {
     alias: {
-      app: "/src/1.app",
-      pages: "/src/2.pages",
-      widgets: "/src/3.widgets",
-      features: "/src/4.features",
-      entities: "/src/5.entities",
-      shared: "/src/6.shared",
+      app: '/src/app',
+      pages: '/src/pages',
+      widgets: '/src/widgets',
+      features: '/src/features',
+      entities: '/src/entities',
+      shared: '/src/shared',
     },
   },
 });

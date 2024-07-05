@@ -1,0 +1,96 @@
+.Sort {
+  position: relative;
+  width: 250px;
+}
+
+.sortButton {
+  display: flex;
+  gap: 5px;
+  margin: 0 0 8px 0;
+
+  white-space: nowrap;
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.titleWrapper {
+  position: relative;
+  padding: 0 0 0 15px;
+  font-size: 14px;
+}
+
+.sortTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.arrowIcon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  translate: (-50%);
+
+  &.rotate {
+    rotate: (180deg);
+  }
+}
+
+.selectedSort {
+  width: fit-content;
+  margin: 0 0 0 5px;
+  font-size: 16px;
+  text-align: center;
+  color: var(--color-accent);
+  border-bottom: 1px dotted currentColor;
+}
+
+.optionsList {
+  position: absolute;
+  right: 0;
+
+  display: none;
+  width: 160px;
+  padding: 10px 0;
+
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  box-shadow: 0px 5px 15px var(--grey-alpha-09);
+  border-radius: 10px;
+  overflow: hidden;
+
+  &.isVisible {
+    display: block;
+    transition-behavior: allow-discrete;
+    opacity: 1;
+    transition: opacity 0.6s ease;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}
+
+.optionsButton {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--color-primary-light);
+
+  transition: color var(--transition-primary), background-color var(--transition-primary);
+  cursor: pointer;
+
+  &.active {
+    font-weight: 700;
+    color: var(--color-accent);
+    background-color: var(--color-accent-lightest);
+  }
+
+  @include hoverHover {
+    background-color: var(--color-accent-lightest);
+  }
+
+  @include hoverNone {
+    background-color: var(--color-accent-lightest);
+  }
+}

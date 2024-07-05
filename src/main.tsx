@@ -1,7 +1,12 @@
-import ReactDOM from "react-dom/client";
+import ReactDOM from 'react-dom/client';
 
-import { AppProviders } from "app/AppPrividers";
-import "app/styles/index.scss";
+import { AppRouter } from 'app/router';
+import { StoreProvider } from 'app/store';
+import 'app/styles/index.scss';
 
-const root = ReactDOM.createRoot(document.getElementById("root")!);
-root.render(<AppProviders />);
+const root = ReactDOM.createRoot(document.getElementById('root')!);
+root.render(
+  <StoreProvider>
+    <AppRouter />
+  </StoreProvider>
+);

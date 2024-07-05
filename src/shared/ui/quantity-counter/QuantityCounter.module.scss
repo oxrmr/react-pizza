@@ -1,0 +1,48 @@
+.quantityCounter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  .quantity {
+    min-width: 40px;
+    max-width: 50px;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .decreaseBtn,
+  .increaseBtn {
+    --wh-unit: 30px;
+    --shadow-unit: 4px;
+    --shadow: 0 var(--shadow-unit) var(--shadow-unit) var(--grey-alpha-25);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: var(--wh-unit);
+    height: var(--wh-unit);
+
+    background-color: var(--primary-light);
+    color: var(--color-accent);
+    border: 2px solid currentColor;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: box-shadow var(--transition-primary);
+
+    @include hoverHover {
+      box-shadow: var(--shadow);
+    }
+
+    @include hoverNone {
+      box-shadow: var(--shadow);
+    }
+
+    &:active {
+      --shadow-unit: 2px;
+      box-shadow: var(--shadow);
+    }
+  }
+}

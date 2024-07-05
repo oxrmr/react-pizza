@@ -1,0 +1,28 @@
+@mixin supportsNotFocusVisible {
+  @supports not selector(:focus-visible) {
+    &:focus {
+      @content;
+    }
+  }
+}
+
+@mixin hoverHover {
+  @media (hover: hover) {
+    &:hover,
+    &:focus-visible {
+      @content;
+    }
+  }
+
+  @include supportsNotFocusVisible {
+    @content;
+  }
+}
+
+@mixin hoverNone {
+  @media (hover: none) {
+    &:active {
+      @content;
+    }
+  }
+}
