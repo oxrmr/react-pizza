@@ -4,7 +4,7 @@ import cls from './NoRoutePage.module.scss';
 
 import { HomeSVG } from 'shared/assets';
 import { routesPath } from 'shared/router';
-import { AppLink, AppLinkRoles, AppLinkThemes } from 'shared/ui';
+import { UiLink, UiLinkVariants, UiLinkThemes } from 'shared/ui';
 
 const NoRoutePage: FC = () => {
   return (
@@ -13,14 +13,14 @@ const NoRoutePage: FC = () => {
       <p className={cls.aftertitle}>
         Будь-ласка, введіть правильний адрес, або перейдіть на головну сторінку.
       </p>
-      <AppLink
+      <UiLink
         className={cls.goHomeLink}
-        role={AppLinkRoles.button}
-        theme={AppLinkThemes.dark}
+        role={UiLinkVariants.button}
+        theme={UiLinkThemes.dark}
         to={routesPath.home}
       >
         На головну <HomeSVG className={cls.homeIcon} />
-      </AppLink>
+      </UiLink>
     </div>
   );
 };

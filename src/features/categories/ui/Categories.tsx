@@ -1,10 +1,11 @@
 import type { FC } from 'react';
-import { useAppDispatch, useAppSelector } from 'shared/lib';
-import { classNames } from 'shared/lib/utils/classNames/classNames';
-import { Button, ButtonSizes, ButtonThemes } from 'shared/ui';
+
 import { selectCategoryIndex } from '../model/selectors/selectors';
 import { categoriesActions } from '../model/slice/categoriesSlice';
 import cls from './Categories.module.scss';
+
+import { classNames, useAppDispatch, useAppSelector } from 'shared/lib';
+import { UiButton, UiButtonSizes, UiButtonThemes } from 'shared/ui';
 
 export interface ICategoriesProps {
   className?: string;
@@ -24,17 +25,17 @@ export const Categories: FC<ICategoriesProps> = props => {
     <ul className={classNames(cls.Categories, {}, [className])}>
       {CATEGORIES.map((category, index) => (
         <li key={category}>
-          <Button
+          <UiButton
             className={classNames(cls.btn, {
               [cls.active]: index === categoryIdx,
             })}
             type='button'
-            theme={ButtonThemes.GREY}
-            size={ButtonSizes.LG}
+            theme={UiButtonThemes.GREY}
+            size={UiButtonSizes.LG}
             onClick={handleClick(index)}
           >
             {category}
-          </Button>
+          </UiButton>
         </li>
       ))}
     </ul>

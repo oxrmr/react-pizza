@@ -3,7 +3,6 @@ import type { FC } from 'react';
 import cls from './CartPage.module.scss';
 
 // TODO:Move EB to shared
-import { ErrorBoundary } from 'app/error-boundary';
 import {
   CartItem,
   cartActions,
@@ -14,12 +13,10 @@ import {
   selectCartItemsTotal,
 } from 'entities/cart/cart-product-card/model/selectors/selectors';
 import { ArrowLeftSVG, CartSVG, TrashCanSVG } from 'shared/assets';
+import { ErrorBoundary } from 'shared/error-boundary';
 import { useAppDispatch, useAppSelector } from 'shared/lib';
 import { routesPath } from 'shared/router';
-import { Section } from 'shared/ui';
-import { AppLink } from 'shared/ui/app-link/AppLink';
-import { AppLinkRoles, AppLinkThemes } from 'shared/ui/app-link/types';
-import { Button } from 'shared/ui/button/Button';
+import { Section, UiButton, UiLink, UiLinkThemes, UiLinkVariants } from 'shared/ui';
 import { EmptyCart } from './EmptyCart';
 
 const CartPage: FC = () => {
@@ -46,13 +43,13 @@ const CartPage: FC = () => {
                 <CartSVG className={cls.cartIcon} />
                 <h3 className={cls.title}>Корзина</h3>
               </div>
-              <Button
+              <UiButton
                 className={cls.clearCartButton}
                 onClick={handleClearCart}
               >
                 <TrashCanSVG />
                 <span className={cls.clearCartLabel}>Очистити корзину</span>
-              </Button>
+              </UiButton>
             </div>
             <div className={cls.main}>
               <Section>
@@ -78,23 +75,23 @@ const CartPage: FC = () => {
               </Section>
             </div>
             <div className={cls.footer}>
-              <AppLink
+              <UiLink
                 className={cls.goBackLink}
-                role={AppLinkRoles.button}
-                theme={AppLinkThemes.grey}
+                role={UiLinkVariants.button}
+                theme={UiLinkThemes.grey}
                 to={routesPath.home}
               >
                 <ArrowLeftSVG /> Назад
-              </AppLink>
-              {/* TODO: change to link when payment service connected  */}
-              <AppLink
+              </UiLink>
+
+              <UiLink
                 className={cls.cartPayLink}
-                role={AppLinkRoles.button}
-                theme={AppLinkThemes.accent}
+                role={UiLinkVariants.button}
+                theme={UiLinkThemes.accent}
                 to='#'
               >
                 Сплатити
-              </AppLink>
+              </UiLink>
             </div>
           </div>
         )}

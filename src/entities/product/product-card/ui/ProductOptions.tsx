@@ -1,8 +1,9 @@
 import type { FC } from 'react';
-import { classNames } from 'shared/lib/utils/classNames/classNames';
-import type { IProduct } from '../model/types';
 
+import type { IProduct } from '../model/types';
 import cls from './ProductCard.module.scss';
+
+import { classNames } from 'shared/lib';
 
 interface ProductOptionsProps extends Pick<IProduct, 'types' | 'sizes'> {
   onClickType: (type: string) => () => void;

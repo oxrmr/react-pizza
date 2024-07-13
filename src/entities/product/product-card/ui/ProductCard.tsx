@@ -6,7 +6,7 @@ import cls from './ProductCard.module.scss';
 import { ProductOptions } from './ProductOptions';
 
 import type { ICartItem } from 'entities/cart/cart-product-card';
-import { classNames } from 'shared/lib/utils/classNames/classNames';
+import { classNames } from 'shared/lib';
 
 export interface ProductCardProps {
   productData: IProduct;

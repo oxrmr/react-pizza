@@ -1,0 +1,18 @@
+.LinkToCart {
+  padding: 10px 30px;
+  font-weight: 700;
+  text-decoration: none;
+
+  .price {
+    margin: 0 10px 0 0;
+    padding: 0 10px 0 0;
+    border-right: var(--border-primary);
+  }
+
+  .cartSvg {
+    --wh-unit: 16px;
+    width: var(--wh-unit);
+    height: var(--wh-unit);
+    margin: 0 5px 0 0;
+  }
+}

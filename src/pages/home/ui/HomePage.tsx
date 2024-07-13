@@ -2,11 +2,11 @@ import { FC } from 'react';
 
 import cls from './HomePage.module.scss';
 
-import { BugButton, ErrorBoundary } from 'app/error-boundary';
 import { Categories } from 'features/categories';
 import { Sort } from 'features/sort';
+import { BugButton, ErrorBoundary } from 'shared/error-boundary';
 import { Section } from 'shared/ui';
-import { ProductsList } from 'widgets/product';
+import { ProductsList } from 'widgets/product/product-list';
 
 const HomePage: FC = () => {
   return (
