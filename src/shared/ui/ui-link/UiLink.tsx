@@ -11,12 +11,11 @@ export interface AppLinkProps extends LinkProps {
 }
 
 export const UiLink: FC<AppLinkProps> = props => {
-  const { className = '', to, children, variant = '', theme = '', ...restProps } = props;
+  const { className = '', to, children, variant = '', theme = '' } = props;
   return (
     <Link
       to={to}
       className={classNames(cls.AppLink, {}, [className, cls[variant], cls[theme]])}
-      {...restProps}
     >
       {children}
     </Link>

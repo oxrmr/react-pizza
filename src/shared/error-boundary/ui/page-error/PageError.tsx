@@ -17,10 +17,8 @@ export const PageError: FC<PageErrorProps> = props => {
 
   return (
     <div className={classNames(cls.PageError, {}, [className])}>
-      <div>
-        <p className={cls.errorMessage}>Виникла помилка 😕</p>
-        <p className={cls.afterErrorText}>Будь-ласка, оновіть сторінку.</p>
-      </div>
+      <h3 className={cls.errorMessage}>Виникла помилка 😕</h3>
+      <p className={cls.afterErrorText}>Будь-ласка, оновіть сторінку.</p>
       <UiButton
         className={cls.reloadPageBtn}
         theme={UiButtonThemes.LIGHT}

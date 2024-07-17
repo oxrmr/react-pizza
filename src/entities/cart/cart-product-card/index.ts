@@ -1,7 +1,7 @@
 export type { CartItemId, ICartItem, ICartSchema } from './model/types';
 
 export {
-  selectCartItems,
+  selectCartItemsData,
   selectCartItemsTotal,
   selectCartTotalPrice,
 } from './model/selectors/selectors';

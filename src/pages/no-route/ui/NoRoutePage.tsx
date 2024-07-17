@@ -9,7 +9,7 @@ import { UiLink, UiLinkVariants, UiLinkThemes } from 'shared/ui';
 const NoRoutePage: FC = () => {
   return (
     <div className={cls.NoRoutePage}>
-      <h2 className={cls.title}>В нашому магазині відсутній даний маршрут.</h2>
+      <h3 className={cls.title}>В нашому магазині відсутній даний маршрут.</h3>
       <p className={cls.aftertitle}>
         Будь-ласка, введіть правильний адрес, або перейдіть на головну сторінку.
       </p>

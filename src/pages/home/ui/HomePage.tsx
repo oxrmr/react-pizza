@@ -1,5 +1,3 @@
-import { FC } from 'react';
-
 import cls from './HomePage.module.scss';
 
 import { Categories } from 'features/categories';
@@ -8,7 +6,7 @@ import { BugButton, ErrorBoundary } from 'shared/error-boundary';
 import { Section } from 'shared/ui';
 import { ProductsList } from 'widgets/product/product-list';
 
-const HomePage: FC = () => {
+export default function HomePage() {
   return (
     <ErrorBoundary>
       <main className={cls.HomePage}>
@@ -25,6 +23,4 @@ const HomePage: FC = () => {
       </main>
     </ErrorBoundary>
   );
-};
-
-export default HomePage;
+}

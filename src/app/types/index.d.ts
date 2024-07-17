@@ -14,6 +14,6 @@ declare module '*.svg' {
   export default ReactComponent;
 }
 
-declare type IStoreSchema = import('../store/model/types').IStoreSchema;
+declare type StoreSchema = import('../store/model/types').IStoreSchema;
 declare type AppStore = import('../store/model/types').AppStore;
 declare type AppDispatch = import('../store/model/types').AppDispatch;

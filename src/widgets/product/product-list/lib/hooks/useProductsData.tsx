@@ -11,10 +11,10 @@ import { useAppDispatch, useAppSelector } from 'shared/lib';
 import { calcPageCount } from 'shared/lib/utils/calcPageCount';
 import { PER_PAGE, PIZZA_AMOUNT } from '../../model/constants';
 
-export const useProducsData = () => {
+export const useProductsData = () => {
   const [page, setPage] = useState(1);
-  const dispatch = useAppDispatch();
   const totalPages = calcPageCount(PIZZA_AMOUNT, PER_PAGE);
+  const dispatch = useAppDispatch();
   const productData = useAppSelector(selectProducts);
   const error = useAppSelector(selectProductsError);
   const isFetching = useAppSelector(selectProductsFetchStatus);

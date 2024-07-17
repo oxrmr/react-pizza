@@ -7,13 +7,12 @@ import type { ICartItem } from 'entities/cart/cart-product-card';
 import { ProductCard } from 'entities/product/product-card';
 import { AddToCart } from 'features/cart/add-to-cart';
 import { Section } from 'shared/ui';
-import { useProducsData } from '../lib/hooks/useProductsData';
+import { useProductsData } from '../lib/hooks/useProductsData';
 import { createSkeletonsList } from '../lib/utils/createSkeletonsList';
 import { Pagination } from './Pagination';
 
 export const ProductsList: FC = () => {
-  const { error, isFetching, productData, totalPages, page, changePage } =
-    useProducsData();
+  const { error, isFetching, productData, totalPages, page, changePage } = useProductsData();
 
   const addToCartAction = (orderedItem: ICartItem) => {
     return <AddToCart itemToAdd={orderedItem} />;

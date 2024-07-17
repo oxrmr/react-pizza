@@ -4,17 +4,18 @@ import { cartActions } from '../model/slice/cartSlice';
 import type { ICartItem } from '../model/types';
 import cls from './CartItem.module.scss';
 
+import { ErrorBoundary } from 'shared/error-boundary';
 import { classNames, useAppDispatch } from 'shared/lib';
 import { UiQuantityCounter, UiRemoveButton } from 'shared/ui';
 
 export interface ICartItemProps {
-  cartItem: ICartItem;
+  cartItemData: ICartItem;
   className?: string;
 }
 
 export const CartItem: FC<ICartItemProps> = props => {
-  const { cartItem, className = '' } = props;
-  const { id, imageUrl, title, type, size, quantity, price } = cartItem;
+  const { cartItemData, className = '' } = props;
+  const { id, imageUrl, title, type, size, quantity, price } = cartItemData;
   const dispatch = useAppDispatch();
 
   const handleIncrementItem = (id: string) => () => {
@@ -34,38 +35,40 @@ export const CartItem: FC<ICartItemProps> = props => {
   };
 
   return (
-    <li className={classNames(cls.CartItem, {}, [className])}>
-      <div className={cls.itemLeftWrapper}>
-        <img
-          className={cls.image}
-          src={imageUrl}
-          alt='Pizza'
-          width='80'
-          height='80'
-          loading='lazy'
-        />
+    <ErrorBoundary>
+      <li className={classNames(cls.CartItem, {}, [className])}>
+        <div className={cls.itemLeftWrapper}>
+          <img
+            className={cls.image}
+            src={imageUrl}
+            alt='Pizza'
+            width='80'
+            height='80'
+            loading='lazy'
+          />
 
-        <div className={cls.textWrapper}>
-          <h3 className={cls.title}>{title}</h3>
-          <p className={cls.afterTitle}>
-            {type}, {size} см.
-          </p>
+          <div className={cls.textWrapper}>
+            <h3 className={cls.title}>{title}</h3>
+            <p className={cls.afterTitle}>
+              {type}, {size} см.
+            </p>
+          </div>
         </div>
-      </div>
-      <div className={cls.itemRightWrapper}>
-        <UiQuantityCounter
-          id={id}
-          onClickDecrement={handleDecrementItem}
-          onClickIncrement={handleIncrementItem}
-          quantity={quantity}
-        />
-        <span className={cls.price}>{price * quantity}₴</span>
+        <div className={cls.itemRightWrapper}>
+          <UiQuantityCounter
+            id={id}
+            onClickDecrement={handleDecrementItem}
+            onClickIncrement={handleIncrementItem}
+            quantity={quantity}
+          />
+          <span className={cls.price}>{price * quantity}₴</span>
 
-        <UiRemoveButton
-          id={id}
-          onClick={handleRemoveItem}
-        />
-      </div>
-    </li>
+          <UiRemoveButton
+            id={id}
+            onClick={handleRemoveItem}
+          />
+        </div>
+      </li>
+    </ErrorBoundary>
   );
 };
